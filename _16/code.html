@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Lalezar&amp;family=Vazirmatn:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary": "#00190e", "primary-fixed-dim": "#b0c9e8", "on-secondary": "#ffffff", "on-surface-variant": "#43474d", "on-tertiary-container": "#24a375", "secondary-fixed": "#ffdbca", "surface-variant": "#cde5fe", "coral-700": "#c2410c", "border-light": "#d9e2ec", "tertiary-fixed-dim": "#68dba9", "secondary": "#9d4300", "on-surface": "#021d30", "on-error": "#ffffff", "navy-200": "#bcccdc", "on-primary-fixed": "#011d35", "on-tertiary": "#ffffff", "surface-light-input": "#f1f5f9", "surface-container-highest": "#cde5fe", "semantic-success": "#059669", "coral-900": "#7c2d12", "error-container": "#ffdad6", "coral-200": "#fed7aa", "tertiary-fixed": "#85f8c4", "surface-tint": "#49607c", "primary-fixed": "#d1e4ff", "on-secondary-fixed": "#341100", "border-dark-input": "#475569", "outline-variant": "#c3c6ce", "navy-400": "#829ab1", "navy-900": "#102a43", "surface-container-low": "#ecf4ff", "navy-100": "#d9e2ec", "navy-300": "#9fb3c8", "surface-container-lowest": "#ffffff", "navy-950": "#0a1929", "on-primary-container": "#7a92b0", "on-primary": "#ffffff", "tertiary-container": "#00301f", "error": "#ba1a1a", "surface-dark-input": "#1e293b", "outline": "#74777e", "coral-400": "#fb923c", "on-tertiary-fixed-variant": "#005137", "coral-600": "#ea580c", "inverse-surface": "#1a3346", "surface-dim": "#c4ddf6", "coral-50": "#fff7ed", "on-tertiary-fixed": "#002114", "navy-800": "#243b53", "primary-container": "#102a43", "on-secondary-fixed-variant": "#783200", "secondary-fixed-dim": "#ffb690", "inverse-on-surface": "#e7f2ff", "navy-700": "#334e68", "surface-bright": "#f7f9ff", "navy-50": "#f0f4f8", "semantic-error": "#dc2626", "border-dark": "#334e68", "on-error-container": "#93000a", "surface-container": "#e2efff", "surface": "#f7f9ff", "surface-dark-bg": "#020617", "primary": "#00152a", "coral-500": "#f97316", "coral-100": "#ffedd5", "navy-500": "#627d98", "coral-800": "#9a3412", "coral-300": "#fdba74", "on-primary-fixed-variant": "#314863", "surface-container-high": "#d7eaff", "background": "#f7f9ff", "semantic-info": "#2563eb", "inverse-primary": "#b0c9e8", "surface-dark-card": "#0f172a", "on-background": "#021d30", "surface-light-card": "#ffffff", "secondary-container": "#fd761a", "semantic-warning": "#d97706", "navy-600": "#486581", "surface-light-bg": "#f8fafc", "on-secondary-container": "#5c2400" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xl": "2rem", "space-sm": "0.5rem", "gutter": "1rem", "margin-md": "1.5rem", "space-2xl": "3rem", "margin-lg": "2rem", "margin": "1rem", "space-lg": "1.5rem", "space-md": "1rem", "gutter-lg": "1.5rem", "space-xs": "0.25rem" }, "fontFamily": { "label-lg": ["Vazirmatn"], "label-sm": ["Vazirmatn"], "stat-number": ["Lalezar"], "display": ["Lalezar"], "body-lg": ["Vazirmatn"], "body-md": ["Vazirmatn"], "title-lg": ["Vazirmatn"], "title-md": ["Vazirmatn"], "headline-md": ["Lalezar"], "label-md": ["Vazirmatn"], "display-mobile": ["Lalezar"], "headline-lg-mobile": ["Lalezar"], "headline-lg": ["Lalezar"], "body-sm": ["Vazirmatn"] }, "fontSize": { "label-lg": ["1rem", { "lineHeight": "1.4", "fontWeight": "600" }], "label-sm": ["0.75rem", { "lineHeight": "1.3", "fontWeight": "600" }], "stat-number": ["2.25rem", { "lineHeight": "1.0", "fontWeight": "400" }], "display": ["3.5rem", { "lineHeight": "1.15", "letterSpacing": "-0.01em", "fontWeight": "400" }], "body-lg": ["1.125rem", { "lineHeight": "1.6", "fontWeight": "400" }], "body-md": ["1rem", { "lineHeight": "1.5", "fontWeight": "400" }], "title-lg": ["1.25rem", { "lineHeight": "1.4", "fontWeight": "700" }], "title-md": ["1.125rem", { "lineHeight": "1.4", "fontWeight": "600" }], "headline-md": ["1.5rem", { "lineHeight": "1.3", "fontWeight": "400" }], "label-md": ["0.875rem", { "lineHeight": "1.4", "fontWeight": "500" }], "display-mobile": ["2.25rem", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "400" }], "headline-lg-mobile": ["1.75rem", { "lineHeight": "1.3", "fontWeight": "400" }], "headline-lg": ["2.25rem", { "lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "400" }], "body-sm": ["0.875rem", { "lineHeight": "1.5", "fontWeight": "400" }] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-coral-500 selection:text-white"><header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(16,42,67,0.06)]"><div class="h-20 max-w-7xl mx-auto px-margin lg:px-margin-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-xl"><a class="flex items-center gap-space-sm group" data-path="home" href="#"><div class="w-10 h-10 rounded-xl bg-coral-500 flex items-center justify-center text-white shadow-[0_0_20px_rgba(249,115,22,0.35)] transition-transform duration-300 group-hover:scale-105"><span class="material-symbols-outlined text-[24px]">build</span></div><div class="flex flex-col"><span class="font-headline-md text-headline-md text-navy-900 leading-none">فیکس‌بابا</span><span class="font-label-sm text-label-sm text-navy-500 mt-0.5">تعمیرات تخصصی لوازم خانگی</span></div></a><nav class="hidden xl:flex items-center gap-space-lg" data-active-classes="text-coral-600 font-bold"><a class="font-label-md text-label-md text-on-surface-variant hover:text-coral-600 transition-colors" data-path="services" href="#">خدمات تخصصی</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-coral-600 transition-colors" data-path="how-it-works" href="#">نحوه کارکرد</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-coral-600 transition-colors" data-path="guarantee" href="#">مزایا و گارانتی</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-coral-600 transition-colors" data-path="technician-portal" href="#">پورتال تکنسین‌ها</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-coral-600 transition-colors" data-path="reviews" href="#">نظرات مشتریان</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-coral-600 transition-colors" data-path="about-us" href="#">درباره ما</a></nav></div><div class="flex items-center gap-space-sm sm:gap-space-md"><a class="hidden md:flex items-center gap-space-sm px-space-md py-space-sm rounded-xl bg-navy-50 text-navy-900 hover:bg-navy-100 transition-colors" href="tel:02191002424"><span class="material-symbols-outlined text-coral-600 text-[20px]">support_agent</span><div class="flex flex-col items-start"><span class="font-label-sm text-label-sm text-navy-500">پشتیبانی ۲۴ ساعته</span><span class="font-title-md text-title-md text-navy-900 leading-none dir-ltr font-mono">۰۲۱-۹۱۰۰۲۴۲۴</span></div></a><a class="flex items-center gap-space-xs px-space-lg py-space-sm rounded-[14px] bg-gradient-to-r from-coral-500 to-coral-600 text-white font-label-md text-label-md shadow-[0_0_24px_rgba(249,115,22,0.25)] hover:shadow-[0_0_32px_rgba(249,115,22,0.40)] transition-all" data-path="auth" href="#"><span class="material-symbols-outlined text-[20px]">login</span><span>ورود / ثبت‌نام</span></a><button aria-label="تغییر پوسته" class="w-10 h-10 rounded-xl bg-navy-50 text-navy-700 hover:bg-navy-100 hover:text-navy-900 flex items-center justify-center transition-colors"><span class="material-symbols-outlined text-[22px]">dark_mode</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface"><div class="flex flex-col w-full">
+<!-- 1. HERO SECTION (Immersive Navy Gradient with Organic Tech Mesh) -->
+<section class="relative w-full -mt-20 pt-28 pb-20 md:pb-28 bg-gradient-to-b from-navy-950 via-navy-900 to-navy-800 text-white overflow-hidden">
+<!-- Ambient Glow Drops -->
+<div class="absolute -top-32 right-1/4 w-96 h-96 bg-coral-500/15 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute bottom-0 left-10 w-80 h-80 bg-surface-variant/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-margin lg:px-margin-lg relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-center pt-8">
+<!-- Right Column (Hero Typography & CTAs) -->
+<div class="lg:col-span-7 flex flex-col items-start gap-space-lg text-right">
+<!-- Urgent Trust Pill -->
+<div class="inline-flex items-center gap-space-sm px-space-md py-1.5 rounded-full bg-navy-800/80 backdrop-blur-md shadow-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-semantic-success animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-tertiary-fixed-dim">تکنسین‌های منطقه شما در حالت آماده‌باش هستند</span>
+<span class="font-mono text-xs bg-navy-700/60 px-2 py-0.5 rounded-full text-navy-200">میانگین اعزام: ۴۲ دقیقه</span>
+</div>
+<!-- Hero Headline (Dual Line Lalezar) -->
+<div class="flex flex-col">
+<h1 class="font-display text-display text-white tracking-tight leading-none drop-shadow-sm">
+              وسیله‌تان خراب شده؟
+            </h1>
+<span class="font-display text-display text-coral-500 drop-shadow-[0_0_35px_rgba(249,115,22,0.45)] mt-1">
+              همین حالا بسپاریدش به کار!
+            </span>
+</div>
+<!-- Supporting Subtitle -->
+<p class="font-body-lg text-body-lg text-navy-200 max-w-2xl leading-relaxed">
+            سامانه هوشمند اعزام فوری تکنسین احراز صلاحیت‌شده در محل. قیمت‌گذاری شفاف و مصوب، استفاده انحصاری از قطعات اصلی شرکتی، پرداخت امن در حساب امانی و گارانتی کتبی ۱۸۰ روزه بدون اشتراک‌گذاری مستقیم شماره تلفن شما.
+          </p>
+<!-- Dual CTAs -->
+<div class="flex flex-wrap items-center gap-space-md pt-space-xs w-full sm:w-auto">
+<a class="w-full sm:w-auto h-12 px-space-xl rounded-[14px] bg-gradient-to-r from-coral-500 via-coral-600 to-coral-700 text-white font-label-lg text-label-lg flex items-center justify-center gap-space-sm shadow-[0_0_30px_rgba(249,115,22,0.35)] hover:shadow-[0_0_40px_rgba(249,115,22,0.55)] hover:-translate-y-1 transition-all duration-300" href="#order-wizard">
+<span class="material-symbols-outlined text-[24px]">construction</span>
+<span>ثبت آنلاین درخواست تعمیر (شروع رایگان)</span>
+</a>
+<a class="w-full sm:w-auto h-12 px-space-lg rounded-[14px] bg-white/10 hover:bg-white/15 backdrop-blur-md text-white font-label-lg text-label-lg flex items-center justify-center gap-space-sm transition-all duration-300" href="#technician-join">
+<span class="material-symbols-outlined text-coral-400 text-[22px]">handyman</span>
+<span>پورتال تکنسین‌ها (کسب درآمد)</span>
+</a>
+</div>
+<!-- 3 Micro Value Props Bar -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm pt-space-md w-full">
+<div class="flex items-center gap-space-xs px-3 py-2 rounded-xl bg-navy-800/50">
+<span class="material-symbols-outlined text-semantic-success text-[20px]">privacy_tip</span>
+<span class="font-label-sm text-label-sm text-navy-100">حفظ محرمانگی آدرس و تماس</span>
+</div>
+<div class="flex items-center gap-space-xs px-3 py-2 rounded-xl bg-navy-800/50">
+<span class="material-symbols-outlined text-coral-400 text-[20px]">verified</span>
+<span class="font-label-sm text-label-sm text-navy-100">گارانتی کتبی ۱۸۰ روزه بی‌قیدوشرط</span>
+</div>
+<div class="flex items-center gap-space-xs px-3 py-2 rounded-xl bg-navy-800/50">
+<span class="material-symbols-outlined text-semantic-info text-[20px]">forum</span>
+<span class="font-label-sm text-label-sm text-navy-100">چت امن درون‌برنامه‌ای</span>
+</div>
+</div>
+</div>
+<!-- Left Column (Apple Tactile Glass Preview: Live Ongoing Ticket) -->
+<div class="lg:col-span-5 relative mt-8 lg:mt-0">
+<!-- Outer Glow & Backing Asset -->
+<div class="relative w-full rounded-[28px] bg-gradient-to-b from-white/15 to-white/5 p-1 backdrop-blur-2xl shadow-[0_20px_50px_rgba(2,6,23,0.5)]">
+<div class="w-full rounded-[26px] bg-navy-900/90 p-space-lg flex flex-col gap-space-md">
+<!-- Card Header: Device & Live Indicator -->
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-2xl bg-coral-500/15 flex items-center justify-center text-coral-400">
+<span class="material-symbols-outlined text-[28px]">kitchen</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-title-md text-title-md text-white font-bold">ساید‌بای‌ساید ال‌جی اینورتر</span>
+<span class="px-2 py-0.5 rounded-full text-xs bg-navy-800 text-coral-400 font-mono">LG-Linear</span>
+</div>
+<span class="font-body-sm text-body-sm text-navy-300">ایراد: عدم سرمایش کابین و ارور DH</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-semantic-success/20 text-tertiary-fixed font-label-sm text-label-sm font-semibold">
+<span class="w-2 h-2 rounded-full bg-semantic-success animate-ping"></span>
+                    در حال تعمیر در محل
+                  </span>
+<span class="font-mono text-xs text-navy-400 mt-1">کد سفارش: FX-88402</span>
+</div>
+</div>
+<!-- Real Photo of Appliance Inspection -->
+<div class="relative w-full h-44 rounded-2xl overflow-hidden shadow-inner bg-navy-950">
+<img class="w-full h-full object-cover" data-alt="A professional certified technician wearing a clean dark navy uniform with modern tools carefully inspecting an electronic inverter compressor inside a high-end refrigerator in a bright modern home kitchen with warm coral highlights and crisp diagnostic multimeter tools." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgtaIEFOPJjkWJ0PgBmLn34NgteUc1v6VLWS-5QXUvnRrzdLOOSEm7nhFAgoNqls2qGJjS5f24jraXrlBcen0ZMf8CnT25-xqdfd69igtp_RXFoYO2nBxrBHipMgHVQORp0OvV58nyxLPvAxc-aY_fOY9clMT6zsTB40o9LBoNS2-FXFXuCg6Jd-AZRsvdeNxqOD7VJElZ8_MDw09iJZTZ0p2dmjvBcNCtHnYDF_V5jgRMA_LJzti5ng"/>
+<div class="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-3 right-3 left-3 flex items-center justify-between">
+<div class="flex items-center gap-1.5 bg-navy-950/80 backdrop-blur-md px-3 py-1 rounded-xl">
+<span class="material-symbols-outlined text-semantic-success text-[18px]">verified_user</span>
+<span class="font-label-sm text-label-sm text-white">تست اصالت کیت اینورتر اصل کره‌ای</span>
+</div>
+<span class="bg-coral-500 text-white font-label-sm text-label-sm px-2.5 py-1 rounded-xl font-mono">۷۰٪ انجام شد</span>
+</div>
+</div>
+<!-- Live Progress Stepper Bar -->
+<div class="flex flex-col gap-1.5 pt-1">
+<div class="flex justify-between items-center text-xs font-label-sm text-navy-300">
+<span>مرحله فعلی: تعویض سنسور دیفراست و شارژ مبرد R600</span>
+<span class="font-mono text-coral-400 font-bold">مرحله ۳ از ۴</span>
+</div>
+<div class="w-full h-2.5 bg-navy-800 rounded-full overflow-hidden p-0.5">
+<div class="h-full bg-gradient-to-r from-coral-600 to-coral-400 rounded-full w-[70%] transition-all duration-1000 shadow-[0_0_12px_rgba(249,115,22,0.7)]"></div>
+</div>
+</div>
+<!-- Assigned Technician Identity Tile -->
+<div class="flex items-center justify-between p-space-sm rounded-2xl bg-navy-800/80 backdrop-blur-md">
+<div class="flex items-center gap-space-sm">
+<div class="relative">
+<img class="w-11 h-11 rounded-full object-cover shadow-sm" data-alt="A warm and respectful portrait of an experienced master Iranian home appliance technician named Engineer Radmanesh smiling with confident gaze, wearing deep navy branded uniform jacket against a neutral studio backdrop with soft warm lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6B-BcfczIRWsHQJ0REbgRDFWx5G0FhhVrGbg9N3ip4lrHM6vrdDc3lalcbLB2VULnZahyqy9EvvfxRTBcSErBRG0opp4OiMM-UFJB-oU5FXSSYw4GwP2ce3qehDw4rAFGO7qjO47OuwD2NX3_neGm--y3kOG7SDwbO4w4UqjtHyLm0e8FX1r9mDX-wpcBSY3hjDZN7k2J4NtZeg6aL-ItVWKhBo-Sl3oaEKfyYctxw5b4ig52RKDwGQ"/>
+<span class="absolute -bottom-1 -left-1 w-4 h-4 rounded-full bg-semantic-success flex items-center justify-center text-white text-[10px]">✓</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="font-title-md text-title-md text-white">مهندس کاوه رادمنش</span>
+<span class="text-xs text-semantic-success font-label-sm bg-semantic-success/10 px-1.5 py-0.5 rounded">رتبه ۱ منطقه‌۳</span>
+</div>
+<span class="font-body-sm text-body-sm text-navy-300">۱۲ سال سابقه تخصصی برودتی • ۵۶۰ تعمیر موفق</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-center text-amber-400 gap-0.5">
+<span class="font-stat-number text-stat-number text-amber-400 leading-none">۴.۹</span>
+<span class="material-symbols-outlined text-[18px] fill-1 text-amber-400" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="text-xs text-navy-400 font-mono">از ۳۸۲ نظر</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Guarantee Badge (Tactile Overlap) -->
+<div class="absolute -bottom-6 -right-6 hidden sm:flex items-center gap-space-sm p-space-md rounded-2xl bg-white text-navy-900 shadow-[0_12px_30px_rgba(16,42,67,0.25)] hover:scale-105 transition-transform duration-300">
+<div class="w-12 h-12 rounded-xl bg-coral-50 flex items-center justify-center text-coral-600">
+<span class="material-symbols-outlined text-[30px]">shield_with_heart</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md font-bold text-navy-900 leading-tight">ضمانت‌نامه رسمی ۱۸۰ روزه</span>
+<span class="font-label-sm text-label-sm text-navy-500">مهر دیجیتال رسمی + صدور کارت بیمه</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. QUICK TRACKING STRIP (No Login Required) -->
+<section class="relative z-20 -mt-7 max-w-5xl mx-auto px-margin w-full">
+<div class="bg-surface-container-lowest rounded-2xl shadow-[0_10px_25px_rgba(16,42,67,0.10)] p-space-md sm:p-space-lg">
+<div class="flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm w-full md:w-auto">
+<div class="w-12 h-12 rounded-xl bg-coral-50 flex items-center justify-center text-coral-600 shrink-0">
+<span class="material-symbols-outlined text-[26px]">manage_search</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-navy-900 font-bold">پیگیری سریع سفارش بدون نیاز به ورود</span>
+<span class="font-body-sm text-body-sm text-navy-500">کد پیگیری پیامک‌شده را وارد کنید تا موقعیت زنده تکنسین را ببینید</span>
+</div>
+</div>
+<form class="flex flex-col sm:flex-row items-center gap-space-sm w-full md:w-auto" id="track-form" onsubmit="event.preventDefault(); showMockTracking();">
+<div class="relative w-full sm:w-64">
+<input class="w-full h-12 px-space-md pl-10 rounded-[14px] bg-surface-light-input text-navy-900 placeholder:text-navy-400 font-mono text-sm focus:outline-none focus:bg-white transition-all" id="tracking-input" placeholder="مثال: FX-88402" type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-3 text-navy-400 text-[20px]">tag</span>
+</div>
+<button class="w-full sm:w-auto h-12 px-space-lg rounded-[14px] bg-navy-900 hover:bg-navy-800 text-white font-label-md text-label-md flex items-center justify-center gap-space-xs transition-colors shrink-0" type="submit">
+<span>استعلام وضعیت</span>
+<span class="material-symbols-outlined text-[18px]">arrow_left</span>
+</button>
+</form>
+</div>
+<!-- Real-time Mock Tracking Output Container -->
+<div class="hidden mt-space-md pt-space-md bg-navy-50 rounded-xl p-space-md" id="track-result">
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="w-3 h-3 rounded-full bg-coral-500 animate-ping"></span>
+<span class="font-title-md text-title-md text-navy-900">سفارش FX-88402: تکنسین در مسیر منزل شماست</span>
+</div>
+<span class="font-label-sm text-label-sm bg-coral-100 text-coral-800 px-3 py-1 rounded-full font-bold">تخمین رسیدن: ۱۸ دقیقه</span>
+</div>
+<p class="font-body-sm text-body-sm text-navy-600 mt-2">
+          متخصص: آقای کاوه رادمنش (کد تاییدیه: ۷۴۲۱) • تلفن رمزگذاری‌شده تماس درون‌برنامه‌ای تا ۳۰ دقیقه پس از اتمام خدمت فعال است.
+        </p>
+</div>
+</div>
+</section>
+<!-- 3. HOW IT WORKS: 4 TACTILE VISUAL STEPS -->
+<section class="w-full py-20 bg-surface">
+<div class="max-w-7xl mx-auto px-margin lg:px-margin-lg">
+<div class="flex flex-col items-center text-center gap-space-xs mb-16">
+<span class="px-3.5 py-1 rounded-full bg-coral-100 text-coral-700 font-label-sm text-label-sm font-bold">
+          فرآیند شفاف و استاندارد
+        </span>
+<h2 class="font-headline-lg text-headline-lg text-navy-900">
+          چطور کار می‌کنه؟ از ثبت تا گارانتی، شفاف و بدون دغدغه
+        </h2>
+<p class="font-body-lg text-body-lg text-navy-500 max-w-2xl">
+          فیکس‌بابا واسطه‌های سنتی و قیمت‌گذاری‌های نامشخص را حذف کرده و امنیت پرداخت شما را با حساب امانی اسکرو تضمین می‌کند.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter-lg relative">
+<!-- Step 1 -->
+<div class="relative bg-surface-container-lowest rounded-[24px] p-space-lg flex flex-col gap-space-md shadow-sm hover:shadow-md transition-shadow group">
+<div class="flex items-center justify-between">
+<span class="font-stat-number text-stat-number text-navy-200 group-hover:text-coral-500 transition-colors leading-none">۰۱</span>
+<div class="w-12 h-12 rounded-2xl bg-navy-50 text-navy-900 group-hover:bg-coral-500 group-hover:text-white transition-all flex items-center justify-center">
+<span class="material-symbols-outlined text-[26px]">edit_note</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<h3 class="font-title-lg text-title-lg text-navy-900 font-bold">ثبت رایگان مشخصات دستگاه و ایراد</h3>
+<p class="font-body-md text-body-md text-navy-500 leading-relaxed">
+              بدون نیاز به پرداخت اولیه یا ثبت‌نام طولانی، در کمتر از ۲ دقیقه مشکل دستگاه را به همراه عکس یا پیام صوتی ثبت کنید.
+            </p>
+</div>
+<div class="mt-auto pt-space-xs flex items-center gap-1.5 text-coral-600 font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>زمان تقریبی: ۹۰ ثانیه</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative bg-surface-container-lowest rounded-[24px] p-space-lg flex flex-col gap-space-md shadow-sm hover:shadow-md transition-shadow group">
+<div class="flex items-center justify-between">
+<span class="font-stat-number text-stat-number text-navy-200 group-hover:text-coral-500 transition-colors leading-none">۰۲</span>
+<div class="w-12 h-12 rounded-2xl bg-navy-50 text-navy-900 group-hover:bg-coral-500 group-hover:text-white transition-all flex items-center justify-center">
+<span class="material-symbols-outlined text-[26px]">request_quote</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<h3 class="font-title-lg text-title-lg text-navy-900 font-bold">دریافت قیمت رقابتی و انتخاب آگاهانه</h3>
+<p class="font-body-md text-body-md text-navy-500 leading-relaxed">
+              تکنسین‌های تایید صلاحیت‌شده و دارای گواهی عدم سوءپیشینه محله شما، برآورد هزینه و سوابق خود را ارسال می‌کنند.
+            </p>
+</div>
+<div class="mt-auto pt-space-xs flex items-center gap-1.5 text-semantic-success font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span>بدون هزینه کمیسیون پنهان</span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative bg-surface-container-lowest rounded-[24px] p-space-lg flex flex-col gap-space-md shadow-sm hover:shadow-md transition-shadow group">
+<div class="flex items-center justify-between">
+<span class="font-stat-number text-stat-number text-navy-200 group-hover:text-coral-500 transition-colors leading-none">۰۳</span>
+<div class="w-12 h-12 rounded-2xl bg-navy-50 text-navy-900 group-hover:bg-coral-500 group-hover:text-white transition-all flex items-center justify-center">
+<span class="material-symbols-outlined text-[26px]">home_repair_service</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<h3 class="font-title-lg text-title-lg text-navy-900 font-bold">اعزام فوری و تعمیر در محل با نظارت شما</h3>
+<p class="font-body-md text-body-md text-navy-500 leading-relaxed">
+              تکنسین منتخب با ابزار کامل و قطعات پلمپ شرکتی در بازه زمانی تعیین‌شده در منزل شما حاضر شده و دستگاه را تعمیر می‌کند.
+            </p>
+</div>
+<div class="mt-auto pt-space-xs flex items-center gap-1.5 text-navy-600 font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span>تعمیر در محل بدون جابجایی</span>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="relative bg-surface-container-lowest rounded-[24px] p-space-lg flex flex-col gap-space-md shadow-sm hover:shadow-md transition-shadow group">
+<div class="flex items-center justify-between">
+<span class="font-stat-number text-stat-number text-navy-200 group-hover:text-coral-500 transition-colors leading-none">۰۴</span>
+<div class="w-12 h-12 rounded-2xl bg-coral-50 text-coral-600 group-hover:bg-coral-500 group-hover:text-white transition-all flex items-center justify-center">
+<span class="material-symbols-outlined text-[26px]">verified</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<h3 class="font-title-lg text-title-lg text-navy-900 font-bold">تست نهایی، تسویه اسکرو و گارانتی ۱۸۰ روزه</h3>
+<p class="font-body-md text-body-md text-navy-500 leading-relaxed">
+              وجه پرداختی در حساب امانی محفوظ می‌ماند و تنها پس از رضایت کامل شما آزاد می‌شود. کارت ضمانت ۶ ماهه بلافاصله فعال می‌گردد.
+            </p>
+</div>
+<div class="mt-auto pt-space-xs flex items-center gap-1.5 text-semantic-info font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+<span>حساب امانی تضمین کیفیت</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. APPLIANCE SERVICES CATALOG (13 Categories with Transparent Base Pricing) -->
+<section class="w-full py-20 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-margin lg:px-margin-lg">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-12">
+<div class="flex flex-col gap-space-xs">
+<span class="px-3 py-1 rounded-full bg-navy-100 text-navy-800 font-label-sm text-label-sm font-semibold w-fit">
+            پوشش جامع لوازم خانگی
+          </span>
+<h2 class="font-headline-lg text-headline-lg text-navy-900">
+            خدمات تخصصی با نرخ‌نامه مصوب اتحادیه
+          </h2>
+<p class="font-body-md text-body-md text-navy-500">
+            تمامی تکنسین‌ها موظف به رعایت حداقل نرخ پایه کارشناسی و ارائه فاکتور رسمی سیستمی هستند.
+          </p>
+</div>
+<a class="inline-flex items-center gap-space-xs text-coral-600 hover:text-coral-700 font-label-lg text-label-lg font-bold group" href="#order-wizard">
+<span>مشاهده جزئیات عیب‌یابی همه دستگاه‌ها</span>
+<span class="material-symbols-outlined text-[20px] group-hover:-translate-x-1 transition-transform">arrow_back</span>
+</a>
+</div>
+<!-- Categories Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-space-md">
+<!-- Category Card 1 -->
+<a class="bg-surface-container-lowest rounded-2xl p-space-md flex flex-col gap-space-sm hover:shadow-md hover:-translate-y-1 transition-all group" href="#order-wizard">
+<div class="w-12 h-12 rounded-xl bg-navy-50 text-navy-900 group-hover:bg-coral-500 group-hover:text-white flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[28px]">kitchen</span>
+</div>
+<span class="font-title-md text-title-md text-navy-900 group-hover:text-coral-600 transition-colors">یخچال و فریزر</span>
+<span class="font-body-sm text-body-sm text-navy-400">ساید، دوقلو، صنعتی، اینورتر</span>
+<div class="mt-auto pt-2 flex items-center justify-between text-xs text-navy-500">
+<span>پایه عیب‌یابی:</span>
+<span class="font-mono font-bold text-navy-900">۱۸۰،۰۰۰ ت</span>
+</div>
+</a>
+<!-- Category Card 2 -->
+<a class="bg-surface-container-lowest rounded-2xl p-space-md flex flex-col gap-space-sm hover:shadow-md hover:-translate-y-1 transition-all group" href="#order-wizard">
+<div class="w-12 h-12 rounded-xl bg-navy-50 text-navy-900 group-hover:bg-coral-500 group-hover:text-white flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[28px]">local_laundry_service</span>
+</div>
+<span class="font-title-md text-title-md text-navy-900 group-hover:text-coral-600 transition-colors">ماشین لباسشویی</span>
+<span class="font-body-sm text-body-sm text-navy-400">درب جلو، مخزنی، تسمه‌ای و گیربکسی</span>
+<div class="mt-auto pt-2 flex items-center justify-between text-xs text-navy-500">
+<span>پایه عیب‌یابی:</span>
+<span class="font-mono font-bold text-navy-900">۱۶۰،۰۰۰ ت</span>
+</div>
+</a>
+<!-- Category Card 3 -->
+<a class="bg-surface-container-lowest rounded-2xl p-space-md flex flex-col gap-space-sm hover:shadow-md hover:-translate-y-1 transition-all group" href="#order-wizard">
+<div class="w-12 h-12 rounded-xl bg-navy-50 text-navy-900 group-hover:bg-coral-500 group-hover:text-white flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[28px]">dishwasher_gen</span>
+</div>
+<span class="font-title-md text-title-md text-navy-900 group-hover:text-coral-600 transition-colors">ماشین ظرفشویی</span>
+<span class="font-body-sm text-body-sm text-navy-400">رومیزی، مبله، توکار و تجاری</span>
+<div class="mt-auto pt-2 flex items-center justify-between text-xs text-navy-500">
+<span>پایه عیب‌یابی:</span>
+<span class="font-mono font-bold text-navy-900">۱۶۰،۰۰۰ ت</span>
+</div>
+</a>
+<!-- Category Card 4 -->
+<a class="bg-surface-container-lowest rounded-2xl p-space-md flex flex-col gap-space-sm hover:shadow-md hover:-translate-y-1 transition-all group" href="#order-wizard">
+<div class="w-12 h-12 rounded-xl bg-navy-50 text-navy-900 group-hover:bg-coral-500 group-hover:text-white flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[28px]">hvac</span>
+</div>
+<span class="font-title-md text-title-md text-navy-900 group-hover:text-coral-600 transition-colors">پکیج و آبگرمکن</span>
+<span class="font-body-sm text-body-sm text-navy-400">دیواری، مخزنی، اسیدشویی مبدل</span>
+<div class="mt-auto pt-2 flex items-center justify-between text-xs text-navy-500">
+<span>پایه عیب‌یابی:</span>
+<span class="font-mono font-bold text-navy-900">۱۹۰،۰۰۰ ت</span>
+</div>
+</a>
+<!-- Category Card 5 -->
+<a class="bg-surface-container-lowest rounded-2xl p-space-md flex flex-col gap-space-sm hover:shadow-md hover:-translate-y-1 transition-all group" href="#order-wizard">
+<div class="w-12 h-12 rounded-xl bg-navy-50 text-navy-900 group-hover:bg-coral-500 group-hover:text-white flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[28px]">mode_fan</span>
+</div>
+<span class="font-title-md text-title-md text-navy-900 group-hover:text-coral-600 transition-colors">کولر گازی و اسپلیت</span>
+<span class="font-body-sm text-body-sm text-navy-400">شارژ گاز، شستشوی سیکل، کمپرسور</span>
+<div class="mt-auto pt-2 flex items-center justify-between text-xs text-navy-500">
+<span>پایه عیب‌یابی:</span>
+<span class="font-mono font-bold text-navy-900">۲۰۰،۰۰۰ ت</span>
+</div>
+</a>
+<!-- Category Card 6 -->
+<a class="bg-surface-container-lowest rounded-2xl p-space-md flex flex-col gap-space-sm hover:shadow-md hover:-translate-y-1 transition-all group" href="#order-wizard">
+<div class="w-12 h-12 rounded-xl bg-navy-50 text-navy-900 group-hover:bg-coral-500 group-hover:text-white flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[28px]">microwave</span>
+</div>
+<span class="font-title-md text-title-md text-navy-900 group-hover:text-coral-600 transition-colors">ماکروفر و سولاردام</span>
+<span class="font-body-sm text-body-sm text-navy-400">مگنترون، خازن و ترانس های‌ولتاژ</span>
+<div class="mt-auto pt-2 flex items-center justify-between text-xs text-navy-500">
+<span>پایه عیب‌یابی:</span>
+<span class="font-mono font-bold text-navy-900">۱۵۰،۰۰۰ ت</span>
+</div>
+</a>
+<!-- Category Card 7 -->
+<a class="bg-surface-container-lowest rounded-2xl p-space-md flex flex-col gap-space-sm hover:shadow-md hover:-translate-y-1 transition-all group" href="#order-wizard">
+<div class="w-12 h-12 rounded-xl bg-navy-50 text-navy-900 group-hover:bg-coral-500 group-hover:text-white flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[28px]">vacuum</span>
+</div>
+<span class="font-title-md text-title-md text-navy-900 group-hover:text-coral-600 transition-colors">جاروبرقی و روباتیک</span>
+<span class="font-body-sm text-body-sm text-navy-400">موتور، سیم‌جمع‌کن، فیلتر هپا</span>
+<div class="mt-auto pt-2 flex items-center justify-between text-xs text-navy-500">
+<span>پایه عیب‌یابی:</span>
+<span class="font-mono font-bold text-navy-900">۱۴۰،۰۰۰ ت</span>
+</div>
+</a>
+<!-- Category Card 8 -->
+<a class="bg-surface-container-lowest rounded-2xl p-space-md flex flex-col gap-space-sm hover:shadow-md hover:-translate-y-1 transition-all group" href="#order-wizard">
+<div class="w-12 h-12 rounded-xl bg-navy-50 text-navy-900 group-hover:bg-coral-500 group-hover:text-white flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[28px]">skillet</span>
+</div>
+<span class="font-title-md text-title-md text-navy-900 group-hover:text-coral-600 transition-colors">اجاق گاز و فر توکار</span>
+<span class="font-body-sm text-body-sm text-navy-400">ترموکوپل، فندک برقی، بوبین</span>
+<div class="mt-auto pt-2 flex items-center justify-between text-xs text-navy-500">
+<span>پایه عیب‌یابی:</span>
+<span class="font-mono font-bold text-navy-900">۱۵۰،۰۰۰ ت</span>
+</div>
+</a>
+<!-- Category Card 9 -->
+<a class="bg-surface-container-lowest rounded-2xl p-space-md flex flex-col gap-space-sm hover:shadow-md hover:-translate-y-1 transition-all group" href="#order-wizard">
+<div class="w-12 h-12 rounded-xl bg-navy-50 text-navy-900 group-hover:bg-coral-500 group-hover:text-white flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[28px]">tv</span>
+</div>
+<span class="font-title-md text-title-md text-navy-900 group-hover:text-coral-600 transition-colors">تلویزیون و صوتی تصویری</span>
+<span class="font-body-sm text-body-sm text-navy-400">بک‌لایت، برد تیکان و پاور</span>
+<div class="mt-auto pt-2 flex items-center justify-between text-xs text-navy-500">
+<span>پایه عیب‌یابی:</span>
+<span class="font-mono font-bold text-navy-900">۱۷۰،۰۰۰ ت</span>
+</div>
+</a>
+<!-- Category Card 10 -->
+<a class="bg-surface-container-lowest rounded-2xl p-space-md flex flex-col gap-space-sm hover:shadow-md hover:-translate-y-1 transition-all group" href="#order-wizard">
+<div class="w-12 h-12 rounded-xl bg-navy-50 text-navy-900 group-hover:bg-coral-500 group-hover:text-white flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[28px]">coffee_maker</span>
+</div>
+<span class="font-title-md text-title-md text-navy-900 group-hover:text-coral-600 transition-colors">اسپرسوساز و قهوه‌ساز</span>
+<span class="font-body-sm text-body-sm text-navy-400">پمپ اولکا، بویلر، رسوب‌زدایی تخصصی</span>
+<div class="mt-auto pt-2 flex items-center justify-between text-xs text-navy-500">
+<span>پایه عیب‌یابی:</span>
+<span class="font-mono font-bold text-navy-900">۱۴۰،۰۰۰ ت</span>
+</div>
+</a>
+<!-- Category Card 11 -->
+<a class="bg-surface-container-lowest rounded-2xl p-space-md flex flex-col gap-space-sm hover:shadow-md hover:-translate-y-1 transition-all group" href="#order-wizard">
+<div class="w-12 h-12 rounded-xl bg-navy-50 text-navy-900 group-hover:bg-coral-500 group-hover:text-white flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[28px]">iron</span>
+</div>
+<span class="font-title-md text-title-md text-navy-900 group-hover:text-coral-600 transition-colors">اتوپرس و بخارگر</span>
+<span class="font-body-sm text-body-sm text-navy-400">کفی نسوز، پمپ بخار و ترموستات</span>
+<div class="mt-auto pt-2 flex items-center justify-between text-xs text-navy-500">
+<span>پایه عیب‌یابی:</span>
+<span class="font-mono font-bold text-navy-900">۱۳۰،۰۰۰ ت</span>
+</div>
+</a>
+<!-- Category Card 12 -->
+<a class="bg-surface-container-lowest rounded-2xl p-space-md flex flex-col gap-space-sm hover:shadow-md hover:-translate-y-1 transition-all group" href="#order-wizard">
+<div class="w-12 h-12 rounded-xl bg-navy-50 text-navy-900 group-hover:bg-coral-500 group-hover:text-white flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[28px]">blender</span>
+</div>
+<span class="font-title-md text-title-md text-navy-900 group-hover:text-coral-600 transition-colors">خردکن و غذاساز</span>
+<span class="font-body-sm text-body-sm text-navy-400">تیغه، چرخ‌دنده‌ها، استاتور</span>
+<div class="mt-auto pt-2 flex items-center justify-between text-xs text-navy-500">
+<span>پایه عیب‌یابی:</span>
+<span class="font-mono font-bold text-navy-900">۱۲۰،۰۰۰ ت</span>
+</div>
+</a>
+</div>
+</div>
+</section>
+<!-- 5. FIXBABA VS TRADITIONAL REPAIR COMPARISON (Decisive Contrast Table) -->
+<section class="w-full py-20 bg-surface">
+<div class="max-w-6xl mx-auto px-margin lg:px-margin-lg">
+<div class="flex flex-col items-center text-center gap-space-xs mb-16">
+<span class="px-3.5 py-1 rounded-full bg-navy-100 text-navy-800 font-label-sm text-label-sm font-bold">
+          چرا فیکس‌بابا؟
+        </span>
+<h2 class="font-headline-lg text-headline-lg text-navy-900">
+          مقایسه تفاوت فیکس‌بابا با تعمیرکاران سنتی و متفرقه
+        </h2>
+<p class="font-body-lg text-body-lg text-navy-500 max-w-2xl">
+          دیگر نگران دستمزدهای نجومی بدون معیار، قطعات غیراصل یا عدم پاسخگویی پس از خروج تعمیرکار نباشید.
+        </p>
+</div>
+<!-- Bento-Styled Split Matrix -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg items-stretch">
+<!-- FixBaba Advantage Card (Elevated Brand Navy) -->
+<div class="bg-navy-900 rounded-[28px] p-space-xl text-white flex flex-col gap-space-lg shadow-xl relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-coral-500/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex items-center justify-between relative z-10 pb-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-coral-500 flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-[24px]">verified</span>
+</div>
+<span class="font-headline-md text-headline-md text-white">پلتفرم هوشمند فیکس‌بابا</span>
+</div>
+<span class="px-3 py-1 rounded-full bg-semantic-success/20 text-tertiary-fixed font-label-sm text-label-sm font-semibold">
+              استاندارد شرکتی
+            </span>
+</div>
+<div class="flex flex-col gap-space-md relative z-10">
+<div class="flex items-start gap-space-sm">
+<div class="w-6 h-6 rounded-full bg-semantic-success/20 text-semantic-success flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-white font-bold">ضمانت کتبی ۱۸۰ روزه بی‌قیدوشرط</span>
+<span class="font-body-sm text-body-sm text-navy-300">در صورت بروز مجدد ایراد، تعمیرکار موظف به اعزام فوری و رفع مشکل بدون دریافت هزینه است.</span>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<div class="w-6 h-6 rounded-full bg-semantic-success/20 text-semantic-success flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-white font-bold">پرداخت در حساب امانی (اسکرو)</span>
+<span class="font-body-sm text-body-sm text-navy-300">پول شما نزد فیکس‌بابا قفل می‌ماند تا زمانی که دستگاه کار کند و شخصاً کار را تایید نمایید.</span>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<div class="w-6 h-6 rounded-full bg-semantic-success/20 text-semantic-success flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-white font-bold">تکنسین احراز صلاحیت‌شده با گواهی عدم سوءپیشینه</span>
+<span class="font-body-sm text-body-sm text-navy-300">آزمون فنی تخصصی، تایید آدرس منزل، استعلام قضایی و بررسی مجوز اتحادیه قبل از پذیرش.</span>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<div class="w-6 h-6 rounded-full bg-semantic-success/20 text-semantic-success flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-white font-bold">فاکتور سیستمی و قطعات پلمپ بارکددار</span>
+<span class="font-body-sm text-body-sm text-navy-300">استفاده اختصاصی از قطعات ارجینال با شماره سریال ثبت‌شده در پنل شما و فاکتور تفکیکی.</span>
+</div>
+</div>
+</div>
+<div class="mt-auto pt-space-md relative z-10">
+<a class="w-full h-12 rounded-[14px] bg-coral-500 hover:bg-coral-600 text-white font-label-md text-label-md flex items-center justify-center gap-space-xs transition-colors" href="#order-wizard">
+<span>رزرو خدمت با گارانتی ۱۸۰ روزه</span>
+<span class="material-symbols-outlined text-[18px]">arrow_left</span>
+</a>
+</div>
+</div>
+<!-- Traditional Repair Weakness Card (Muted Surface) -->
+<div class="bg-surface-container-high rounded-[28px] p-space-xl text-on-surface flex flex-col gap-space-lg shadow-sm">
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-navy-200 text-navy-700 flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">storefront</span>
+</div>
+<span class="font-headline-md text-headline-md text-navy-800">تعمیرکاران سنتی و متفرقه</span>
+</div>
+<span class="px-3 py-1 rounded-full bg-semantic-error/15 text-semantic-error font-label-sm text-label-sm font-semibold">
+              ریسک بالا و بدون پیگیری
+            </span>
+</div>
+<div class="flex flex-col gap-space-md">
+<div class="flex items-start gap-space-sm">
+<div class="w-6 h-6 rounded-full bg-semantic-error/10 text-semantic-error flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-navy-800 font-bold">بدون ضمانت یا وعده شفاهی نامعتبر</span>
+<span class="font-body-sm text-body-sm text-navy-500">پس از چند روز و خرابی مجدد، تماس شما رد شده یا مقصر نوسان برق خانه اعلام می‌شود.</span>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<div class="w-6 h-6 rounded-full bg-semantic-error/10 text-semantic-error flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-navy-800 font-bold">پرداخت نقدی یا کارت به کارت فوری</span>
+<span class="font-body-sm text-body-sm text-navy-500">حتی قبل از اطمینان از عملکرد مداوم دستگاه، کل مبلغ تسویه شده و راه برگشتی نیست.</span>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<div class="w-6 h-6 rounded-full bg-semantic-error/10 text-semantic-error flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-navy-800 font-bold">عدم احراز هویت و ناشناس بودن فرد در منزل</span>
+<span class="font-body-sm text-body-sm text-navy-500">ورود افراد با کارت‌های چسبانده‌شده روی درها بدون نظارت سازمان و بدون سوابق معتبر.</span>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<div class="w-6 h-6 rounded-full bg-semantic-error/10 text-semantic-error flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-navy-800 font-bold">قیمت‌های سلیقه‌ای و قطعات استوک دست‌دوم</span>
+<span class="font-body-sm text-body-sm text-navy-500">عدم ارائه داغی قطعه و بستن قطعات مستعمل به نام فابریک با قیمت‌های تصادفی.</span>
+</div>
+</div>
+</div>
+<div class="mt-auto pt-space-md">
+<div class="p-3 rounded-xl bg-surface-container text-navy-600 font-body-sm text-body-sm text-center">
+              بیش از ۷۰٪ مراجعین فیکس‌بابا قبلاً قربانی تعمیرات غیرمجاز خیابانی بوده‌اند.
+            </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. CREDIBILITY & IMPACT METRICS -->
+<section class="w-full py-16 bg-navy-950 text-white relative overflow-hidden">
+<div class="max-w-7xl mx-auto px-margin lg:px-margin-lg relative z-10">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter-lg text-center">
+<div class="flex flex-col items-center gap-1">
+<span class="font-stat-number text-stat-number text-coral-500 leading-tight">+۴۵،۰۰۰</span>
+<span class="font-title-md text-title-md text-white font-bold">دستگاه با موفقیت احیا شد</span>
+<span class="font-body-sm text-body-sm text-navy-400">در سراسر تهران و کرج</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="font-stat-number text-stat-number text-tertiary-fixed-dim leading-tight">۹۸.۵٪</span>
+<span class="font-title-md text-title-md text-white font-bold">رضایت مندرج مشتریان</span>
+<span class="font-body-sm text-body-sm text-navy-400">بر اساس نظرسنجی تلفنی مستقل</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="font-stat-number text-stat-number text-coral-400 leading-tight">+۳۵۰</span>
+<span class="font-title-md text-title-md text-white font-bold">تکنسین احراز صلاحیت‌شده</span>
+<span class="font-body-sm text-body-sm text-navy-400">دارای گواهینامه معتبر فنی‌حرفه‌ای</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="font-stat-number text-stat-number text-white leading-tight font-mono">۴۵ دقیقـه</span>
+<span class="font-title-md text-title-md text-white font-bold">میانگین زمان رسیدن متخصص</span>
+<span class="font-body-sm text-body-sm text-navy-400">در ۲۲ منطقه تهران</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. REAL CUSTOMER REVIEWS (Localized Persian Testimonials) -->
+<section class="w-full py-20 bg-surface">
+<div class="max-w-7xl mx-auto px-margin lg:px-margin-lg">
+<div class="flex flex-col items-center text-center gap-space-xs mb-16">
+<span class="px-3.5 py-1 rounded-full bg-coral-100 text-coral-800 font-label-sm text-label-sm font-bold">
+          صدای مشتریان ما
+        </span>
+<h2 class="font-headline-lg text-headline-lg text-navy-900">
+          تجربه واقعی خانواده‌ها از تعمیر در فیکس‌بابا
+        </h2>
+<p class="font-body-lg text-body-lg text-navy-500 max-w-xl">
+          تمام نظرات پس از اتمام خدمت و تایید فاکتور در سامانه ثبت شده‌اند.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-lg">
+<!-- Review 1 -->
+<div class="bg-surface-container-lowest rounded-[24px] p-space-lg flex flex-col justify-between gap-space-md shadow-sm hover:shadow-md transition-shadow">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1 text-amber-400">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-mono text-xs text-navy-400">۳ روز پیش</span>
+</div>
+<p class="font-body-md text-body-md text-navy-700 leading-relaxed">
+              «برد ماشین ظرفشویی بوش ما کلاً سوخته بود و یک تعمیرکار دیگه گفته بود باید کامل تعویض شه با هزینه ۱۰ میلیون! تکنسین فیکس‌بابا با ابزار کامل آمد و قطعه آسیب‌دیده همان برد را با ۱.۸۰۰ تعمیر کرد. الان مثل روز اول کار می‌کنه.»
+            </p>
+</div>
+<div class="flex items-center gap-space-sm pt-space-sm">
+<div class="w-10 h-10 rounded-full bg-navy-100 flex items-center justify-center text-navy-800 font-bold">
+              م.ص
+            </div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-navy-900">مریم صادقیان</span>
+<span class="font-body-sm text-body-sm text-navy-400">تهران، سعادت‌آباد • ظرفشویی بوش سری ۶</span>
+</div>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="bg-surface-container-lowest rounded-[24px] p-space-lg flex flex-col justify-between gap-space-md shadow-sm hover:shadow-md transition-shadow">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1 text-amber-400">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-mono text-xs text-navy-400">۱ هفته پیش</span>
+</div>
+<p class="font-body-md text-body-md text-navy-700 leading-relaxed">
+              «بهترین قسمتش سیستم اسکرو بود. تا وقتی که لباسشویی یک دور کامل شستشو رو تمام نکرد و خیالم راحت نشد، تکنسین هیچ عجله‌ای برای تایید وجه نداشت. فاکتور پی‌دی‌اف هم با بارکد گارانتی بلافاصله برام پیامک شد.»
+            </p>
+</div>
+<div class="flex items-center gap-space-sm pt-space-sm">
+<div class="w-10 h-10 rounded-full bg-navy-100 flex items-center justify-center text-navy-800 font-bold">
+              ع.ح
+            </div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-navy-900">علیرضا حسینی</span>
+<span class="font-body-sm text-body-sm text-navy-400">تهران، تهرانپارس • ماشین لباسشویی سامسونگ</span>
+</div>
+</div>
+</div>
+<!-- Review 3 -->
+<div class="bg-surface-container-lowest rounded-[24px] p-space-lg flex flex-col justify-between gap-space-md shadow-sm hover:shadow-md transition-shadow">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1 text-amber-400">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-mono text-xs text-navy-400">۲ هفته پیش</span>
+</div>
+<p class="font-body-md text-body-md text-navy-700 leading-relaxed">
+              «در اوج سرمای دی ماه پکیج دیواری آب گرم نمی‌داد و با بچه کوچک واقعا مستاصل شده بودیم. ساعت ۹ شب ثبت درخواست کردم، ساعت ۹:۴۰ تکنسین زنگ در رو زد و با قطعه اصل بوتان مشکل رو برطرف کرد. خدا قوت بهتون.»
+            </p>
+</div>
+<div class="flex items-center gap-space-sm pt-space-sm">
+<div class="w-10 h-10 rounded-full bg-navy-100 flex items-center justify-center text-navy-800 font-bold">
+              ف.ن
+            </div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-navy-900">فرزانه ناصری</span>
+<span class="font-body-sm text-body-sm text-navy-400">کرج، عظیمیه • پکیج دیواری بوتان بیتا</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 8. FINAL HIGH-IMPACT CONVERTING CTA BANNER -->
+<section class="w-full py-16 bg-surface-container-low" id="order-wizard">
+<div class="max-w-7xl mx-auto px-margin lg:px-margin-lg">
+<div class="relative rounded-[32px] bg-gradient-to-r from-navy-950 via-navy-900 to-navy-800 text-white p-space-xl md:p-space-2xl overflow-hidden shadow-2xl">
+<!-- Background Radial Accents -->
+<div class="absolute -left-20 -bottom-20 w-96 h-96 bg-coral-500/20 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -right-20 -top-20 w-80 h-80 bg-surface-variant/15 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-space-xl">
+<!-- Content Block -->
+<div class="flex flex-col gap-space-md text-right max-w-2xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-coral-500/20 text-coral-400 font-label-sm text-label-sm w-fit">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+<span>در کمتر از ۲ دقیقه متخصص دستگاهتان را پیدا کنید</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-white">
+              دستگاهتان را مثل روز اول تحویل بگیرید؛ تضمینی و در منزل
+            </h2>
+<p class="font-body-lg text-body-lg text-navy-200">
+              ثبت درخواست کاملاً رایگان است. تکنسین‌های تاییدصلاحیت‌شده نزدیک شما پس از بررسی، برآورد هزینه را با فاکتور دقیق ارسال می‌کنند.
+            </p>
+<div class="flex flex-wrap items-center gap-space-md pt-space-xs">
+<a class="h-14 px-space-xl rounded-[16px] bg-coral-500 hover:bg-coral-600 text-white font-title-md text-title-md flex items-center justify-center gap-space-sm shadow-[0_0_30px_rgba(249,115,22,0.4)] hover:scale-[1.02] transition-all" href="#">
+<span class="material-symbols-outlined text-[24px]">add_circle</span>
+<span>ثبت فوری درخواست بدون پیش‌پرداخت</span>
+</a>
+<a class="h-14 px-space-lg rounded-[16px] bg-white/10 hover:bg-white/15 backdrop-blur-md text-white font-title-md text-title-md flex items-center justify-center gap-space-sm transition-all" href="tel:02191002424">
+<span class="material-symbols-outlined text-coral-400 text-[24px]">call</span>
+<span class="font-mono dir-ltr font-bold">۰۲۱-۹۱۰۰۲۴۲۴</span>
+<span class="text-xs text-navy-300 mr-1">(مشاوره تلفنی رایگان)</span>
+</a>
+</div>
+</div>
+<!-- Micro Security Card Graphic -->
+<div class="w-full lg:w-auto shrink-0 flex flex-col gap-space-sm bg-navy-800/80 backdrop-blur-xl p-space-lg rounded-2xl">
+<span class="font-title-md text-title-md text-white font-bold">پوشش‌های امنیتی فیکس‌بابا:</span>
+<div class="flex items-center gap-2 text-sm text-navy-200">
+<span class="material-symbols-outlined text-semantic-success text-[20px]">check_circle</span>
+<span>کارت گارانتی طلایی ۱۸۰ روزه معتبر</span>
+</div>
+<div class="flex items-center gap-2 text-sm text-navy-200">
+<span class="material-symbols-outlined text-semantic-success text-[20px]">check_circle</span>
+<span>تضمین استرداد وجه در صورت عدم رضایت</span>
+</div>
+<div class="flex items-center gap-2 text-sm text-navy-200">
+<span class="material-symbols-outlined text-semantic-success text-[20px]">check_circle</span>
+<span>بیمه حوادث و خسارت حین انجام کار</span>
+</div>
+<div class="flex items-center gap-2 text-sm text-navy-200">
+<span class="material-symbols-outlined text-semantic-success text-[20px]">check_circle</span>
+<span>پشتیبانی اختصاصی کارشناسان در تهران</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Tracking Mock Script -->
+<script>
+    function showMockTracking() {
+      const resultBox = document.getElementById('track-result');
+      const inputVal = document.getElementById('tracking-input').value.trim();
+      if (!inputVal) {
+        alert('لطفاً کد پیگیری معتبر (مانند FX-88402) را وارد نمایید.');
+        return;
+      }
+      resultBox.classList.remove('hidden');
+      resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-low text-on-surface pt-space-2xl pb-space-xl"><div class="max-w-7xl mx-auto px-margin lg:px-margin-lg"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-gutter-lg pb-space-2xl"><div class="lg:col-span-2 flex flex-col gap-space-md"><div class="flex items-center gap-space-sm"><div class="w-11 h-11 rounded-xl bg-coral-500 flex items-center justify-center text-white shadow-[0_0_20px_rgba(249,115,22,0.30)]"><span class="material-symbols-outlined text-[26px]">build</span></div><span class="font-headline-lg text-headline-lg text-navy-900">فیکس‌بابا</span></div><p class="font-body-md text-body-md text-on-surface-variant max-w-md leading-relaxed">پلتفرم آنلاین اعزام تکنسین و تعمیرات تخصصی انواع لوازم خانگی بزرگ و کوچک در تهران و کلان‌شهرها. تضمین اصالت قطعات یدکی، شفافیت هزینه‌ها و گارانتی مکتوب ۱۸۰ روزه خدمت شما.</p><div class="flex items-center gap-space-sm pt-space-xs"><div class="flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-white text-navy-900 shadow-sm"><span class="material-symbols-outlined text-semantic-success text-[18px]">verified</span><span class="font-label-sm text-label-sm font-semibold">بیش از ۱۵،۰۰۰ تکنسین تایید صلاحیت شده</span></div></div></div><div class="flex flex-col gap-space-md"><span class="font-title-md text-title-md text-navy-900">خدمات تخصصی محبوب</span><div class="flex flex-col gap-space-sm font-body-sm text-body-sm text-on-surface-variant"><a class="hover:text-coral-600 transition-colors" data-path="services" href="#">تعمیر تخصصی انواع یخچال و فریزر</a><a class="hover:text-coral-600 transition-colors" data-path="services" href="#">تعمیر ماشین لباسشویی و ظرفشویی</a><a class="hover:text-coral-600 transition-colors" data-path="services" href="#">سرویس و تعمیر پکیج دیواری</a><a class="hover:text-coral-600 transition-colors" data-path="services" href="#">شارژ گاز و تعمیر کولر گازی و اسپلیت</a><a class="hover:text-coral-600 transition-colors" data-path="services" href="#">تعمیر ماکروویو، جاروبرقی و اجاق گاز</a></div></div><div class="flex flex-col gap-space-md"><span class="font-title-md text-title-md text-navy-900">راهنما و مشتریان</span><div class="flex flex-col gap-space-sm font-body-sm text-body-sm text-on-surface-variant"><a class="hover:text-coral-600 transition-colors" data-path="how-it-works" href="#">مراحل ثبت سفارش در محل</a><a class="hover:text-coral-600 transition-colors" data-path="guarantee" href="#">قوانین و ضمانت‌نامه ۱۸۰ روزه</a><a class="hover:text-coral-600 transition-colors" data-path="technician-portal" href="#">فرصت‌های همکاری و استخدام تکنسین</a><a class="hover:text-coral-600 transition-colors" data-path="about-us" href="#">سوالات متداول (FAQ)</a><a class="hover:text-coral-600 transition-colors" data-path="about-us" href="#">حریم خصوصی و شرایط خدمات</a></div></div><div class="flex flex-col gap-space-md"><span class="font-title-md text-title-md text-navy-900">مجوزها و تاییدیه رسمی</span><div class="flex items-center gap-space-sm"><div class="w-20 h-24 rounded-xl bg-white flex flex-col items-center justify-center p-space-xs text-center shadow-sm"><span class="material-symbols-outlined text-navy-600 text-[32px]">verified_user</span><span class="font-label-sm text-label-sm text-navy-700 mt-1">اینماد رسمی</span></div><div class="w-20 h-24 rounded-xl bg-white flex flex-col items-center justify-center p-space-xs text-center shadow-sm"><span class="material-symbols-outlined text-coral-600 text-[32px]">shield</span><span class="font-label-sm text-label-sm text-navy-700 mt-1">ساماندهی</span></div><div class="w-20 h-24 rounded-xl bg-white flex flex-col items-center justify-center p-space-xs text-center shadow-sm"><span class="material-symbols-outlined text-semantic-success text-[32px]">security</span><span class="font-label-sm text-label-sm text-navy-700 mt-1">نظام صنفی</span></div></div><div class="flex flex-col gap-space-xs pt-space-xs"><span class="font-label-sm text-label-sm text-navy-500">دفتر مرکزی فیکس‌بابا:</span><span class="font-body-sm text-body-sm text-navy-800">تهران، خیابان آزادی، تقاطع بهبودی، پلاک ۳۲، ساختمان فناوری</span></div></div></div><div class="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md text-on-surface-variant font-body-sm text-body-sm"><span>تمامی حقوق مادی و معنوی برای سامانه آنلاین «فیکس‌بابا» محفوظ است © ۱۴۰۳</span><div class="flex items-center gap-space-md"><a class="hover:text-navy-900 transition-colors" data-path="guarantee" href="#">ضمانت ۶ ماهه</a><span class="text-navy-300">•</span><a class="hover:text-navy-900 transition-colors" data-path="about-us" href="#">تماس با ما</a><span class="text-navy-300">•</span><a class="hover:text-navy-900 transition-colors" data-path="technician-portal" href="#">پیوستن متخصصان</a></div></div></div></footer></body></html>

@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="web_dashboard" name="shell-type"/>
+<title>پنل مدیریت فیکس‌بابا | Django Unfold Admin</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&amp;family=Vazirmatn:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #f0f4f8; }
+    ::-webkit-scrollbar-thumb { background: #bcccdc; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #829ab1; }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-bright": "#f7f9ff",
+            "coral-50": "#fff7ed",
+            "coral-100": "#ffedd5",
+            "coral-200": "#fed7aa",
+            "coral-300": "#fdba74",
+            "coral-400": "#fb923c",
+            "coral-500": "#f97316",
+            "coral-600": "#ea580c",
+            "coral-700": "#c2410c",
+            "coral-800": "#9a3412",
+            "coral-900": "#7c2d12",
+            "primary": "#00152a",
+            "primary-container": "#102a43",
+            "border-dark": "#334e68",
+            "surface-light-input": "#f1f5f9",
+            "surface-dark-input": "#1e293b",
+            "navy-50": "#f0f4f8",
+            "navy-100": "#d9e2ec",
+            "navy-200": "#bcccdc",
+            "navy-300": "#9fb3c8",
+            "navy-400": "#829ab1",
+            "navy-500": "#627d98",
+            "navy-600": "#486581",
+            "navy-700": "#334e68",
+            "navy-800": "#243b53",
+            "navy-900": "#102a43",
+            "navy-950": "#0a1929",
+            "semantic-success": "#059669",
+            "semantic-warning": "#d97706",
+            "semantic-error": "#dc2626",
+            "semantic-info": "#2563eb",
+            "error": "#ba1a1a",
+            "error-container": "#ffdad6",
+            "on-error-container": "#93000a",
+            "surface-light-card": "#ffffff",
+            "surface-light-bg": "#f8fafc",
+            "surface-container": "#e2efff",
+            "surface-container-low": "#ecf4ff",
+            "surface-container-high": "#d7eaff",
+            "surface-container-highest": "#cde5fe",
+            "surface-container-lowest": "#ffffff",
+            "border-light": "#d9e2ec",
+            "surface": "#f8fafc",
+            "on-surface": "#021d30",
+            "on-surface-variant": "#43474d",
+            "on-primary": "#ffffff"
+          },
+          fontFamily: {
+            "display": ["Lalezar"],
+            "headline-md": ["Lalezar"],
+            "headline-lg": ["Lalezar"],
+            "stat-number": ["Lalezar"],
+            "body-sm": ["Vazirmatn"],
+            "body-md": ["Vazirmatn"],
+            "body-lg": ["Vazirmatn"],
+            "label-sm": ["Vazirmatn"],
+            "label-md": ["Vazirmatn"],
+            "label-lg": ["Vazirmatn"],
+            "title-md": ["Vazirmatn"],
+            "title-lg": ["Vazirmatn"]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased flex min-h-screen selection:bg-coral-500 selection:text-white">
+<!-- ASIDE: DJANGO UNFOLD ENTERPRISE SIDEBAR -->
+<aside class="fixed right-0 top-0 h-full w-72 bg-navy-950 text-navy-200 z-50 flex flex-col justify-between shadow-2xl border-l border-navy-800">
+<div class="flex flex-col h-full overflow-y-auto">
+<!-- Django + Fixbaba Header Logo -->
+<div class="h-20 px-5 flex items-center justify-between border-b border-navy-800/80 bg-navy-900/60">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl bg-gradient-to-br from-coral-500 to-coral-700 flex items-center justify-center text-white font-display text-2xl shadow-lg ring-2 ring-coral-400/30">
+            ف
+          </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-md text-xl tracking-wide text-white leading-none">فیکس‌بابا</span>
+<span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-label-sm text-[10px] font-bold border border-emerald-500/30">Admin Pro</span>
+</div>
+<span class="font-label-sm text-xs text-navy-400 mt-1 flex items-center gap-1">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-coral-400"></span>
+              سامانه Django Unfold v5.1
+            </span>
+</div>
+</div>
+</div>
+<!-- Quick Context Box -->
+<div class="p-3 mx-3 my-3 rounded-xl bg-navy-900/90 border border-navy-800 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-2.5 h-2.5 rounded-full bg-semantic-success animate-ping"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-xs text-white font-bold">پایگاه‌داده مرکزی فعال</span>
+<span class="text-[11px] text-navy-400">PostgreSQL Pool: ۱۸ کانکشن سالم</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-navy-800 text-[11px] text-coral-400 font-semibold">PROD</span>
+</div>
+<!-- Navigation Links -->
+<nav class="flex-1 px-3 space-y-6 text-sm">
+<!-- Group: بازبینی و تایید -->
+<div>
+<div class="px-3 mb-2 font-label-sm text-[11px] font-bold tracking-wider text-navy-400 uppercase">عملیات جاری و سفارشات</div>
+<div class="space-y-1">
+<button class="tab-nav-btn w-full flex items-center justify-between px-3 py-2.5 rounded-xl font-label-md transition-all group bg-coral-500 text-white font-bold shadow-md shadow-coral-500/20" data-target="tab-moderation" onclick="switchTab('tab-moderation')">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+<span>تایید و صف انتشار درخواست‌ها</span>
+</div>
+<span class="px-2 py-0.5 rounded-full text-xs font-bold bg-white text-coral-600">۴ فوری</span>
+</button>
+<button class="tab-nav-btn w-full flex items-center justify-between px-3 py-2.5 rounded-xl font-label-md transition-all text-navy-300 hover:bg-navy-900 hover:text-white" data-target="tab-pricing" onclick="switchTab('tab-pricing')">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+<span>موتور قیمت‌گذاری و ضرایب زنده</span>
+</div>
+<span class="text-[10px] text-navy-400 bg-navy-900 px-1.5 py-0.5 rounded">Real-time</span>
+</button>
+<button class="tab-nav-btn w-full flex items-center justify-between px-3 py-2.5 rounded-xl font-label-md transition-all text-navy-300 hover:bg-navy-900 hover:text-white" data-target="tab-kyc" onclick="switchTab('tab-kyc')">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[20px]">shield_person</span>
+<span>کنترل تکنسین‌ها و سهمیه KYC</span>
+</div>
+<span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-coral-500/20 text-coral-300 border border-coral-500/30">۲۹ معوق</span>
+</button>
+<button class="tab-nav-btn w-full flex items-center justify-between px-3 py-2.5 rounded-xl font-label-md transition-all text-navy-300 hover:bg-navy-900 hover:text-white" data-target="tab-audit" onclick="switchTab('tab-audit')">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[20px]">history_toggle_off</span>
+<span>لاگ سیستم و ردپای تغییرات</span>
+</div>
+<span class="w-2 h-2 rounded-full bg-semantic-success"></span>
+</button>
+</div>
+</div>
+<!-- Group: Django Core Models -->
+<div>
+<div class="px-3 mb-2 font-label-sm text-[11px] font-bold tracking-wider text-navy-400 uppercase">مدل‌های داده جنگو (Django Models)</div>
+<div class="space-y-1">
+<a class="flex items-center justify-between px-3 py-2 rounded-xl text-navy-300 hover:bg-navy-900 hover:text-white transition-colors" href="#">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[19px]">home_repair_service</span>
+<span class="font-label-sm text-xs">کاتالوگ خدمات و دسته‌ها</span>
+</div>
+<span class="text-xs text-navy-500 font-mono">ServiceType</span>
+</a>
+<a class="flex items-center justify-between px-3 py-2 rounded-xl text-navy-300 hover:bg-navy-900 hover:text-white transition-colors" href="#">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[19px]">gavel</span>
+<span class="font-label-sm text-xs">پرونده‌های اختلاف و شورای حل اختلاف</span>
+</div>
+<span class="px-1.5 py-0.5 rounded text-[11px] bg-red-900/60 text-red-300 font-bold">۱ باز</span>
+</a>
+<a class="flex items-center justify-between px-3 py-2 rounded-xl text-navy-300 hover:bg-navy-900 hover:text-white transition-colors" href="#">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[19px]">account_balance_wallet</span>
+<span class="font-label-sm text-xs">کیف پول و تسویه‌حساب خودکار پایا</span>
+</div>
+<span class="text-xs text-navy-500 font-mono">PayoutBatch</span>
+</a>
+<a class="flex items-center justify-between px-3 py-2 rounded-xl text-navy-300 hover:bg-navy-900 hover:text-white transition-colors" href="#">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[19px]">tune</span>
+<span class="font-label-sm text-xs">تنظیمات متغیرهای محیطی .env</span>
+</div>
+</a>
+</div>
+</div>
+</nav>
+<!-- User footer inside sidebar -->
+<div class="p-3 border-t border-navy-800 bg-navy-900/70">
+<div class="flex items-center justify-between p-2 rounded-xl bg-navy-950/80 border border-navy-800">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-full bg-gradient-to-tr from-navy-700 to-coral-600 flex items-center justify-center text-white font-bold text-sm ring-1 ring-white/20">
+              ع‌ح
+            </div>
+<div class="flex flex-col">
+<span class="font-label-md text-xs font-bold text-white leading-tight">علیرضا حیدری</span>
+<span class="text-[11px] text-coral-400">سوپرادمین (is_superuser)</span>
+</div>
+</div>
+<button class="w-8 h-8 rounded-lg hover:bg-navy-800 text-navy-400 hover:text-red-400 flex items-center justify-center transition-colors" title="خروج از پنل">
+<span class="material-symbols-outlined text-[18px]">logout</span>
+</button>
+</div>
+</div>
+</div>
+</aside>
+<!-- MAIN WRAPPER -->
+<div class="pr-72 flex-1 flex flex-col min-w-0 bg-slate-50">
+<!-- TOP ENTERPRISE NAVBAR (DJANGO UNFOLD STYLE) -->
+<header class="sticky top-0 z-40 h-16 bg-white/90 backdrop-blur-md border-b border-border-light px-6 flex items-center justify-between shadow-[0_1px_4px_rgba(16,42,67,0.03)]">
+<!-- Search & Breadcrumb -->
+<div class="flex items-center gap-5 flex-1 max-w-2xl">
+<div class="flex items-center gap-2 text-xs font-label-sm text-navy-500">
+<a class="hover:text-coral-600 flex items-center gap-1 font-semibold text-navy-700" href="#">
+<span class="material-symbols-outlined text-[16px]">home</span>
+            فیکس‌بابا
+          </a>
+<span class="text-navy-300">/</span>
+<span class="text-navy-700 font-bold" id="current-breadcrumb">مرکز تایید و نظارت بر درخواست‌ها</span>
+</div>
+<div class="relative flex-1 max-w-md hidden sm:block">
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-navy-400 text-[18px]">search</span>
+<input class="w-full h-9 pr-9 pl-9 rounded-xl bg-surface-light-input border border-navy-100 text-xs font-body-sm text-navy-900 placeholder:text-navy-400 focus:outline-none focus:border-coral-500 focus:bg-white transition-all shadow-inner" placeholder="جستجوی کد رهگیری، شماره مشتری، مدل قطعه یا شناسه تکنسین..." type="text"/>
+<kbd class="absolute left-2.5 top-2 px-1.5 py-0.5 text-[10px] font-mono text-navy-400 bg-white rounded border border-navy-200 shadow-sm">⌘K</kbd>
+</div>
+</div>
+<!-- Action Tools & Indicators -->
+<div class="flex items-center gap-3">
+<!-- Live Cluster Sync Indicator -->
+<div class="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/80">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="font-label-sm text-xs font-bold text-emerald-800">PostgreSQL سینک آنی</span>
+<span class="text-[10px] text-emerald-600 font-mono dir-ltr">18ms</span>
+</div>
+<!-- Quick actions buttons -->
+<button class="w-9 h-9 rounded-xl bg-surface-light-input border border-navy-200/60 hover:bg-navy-50 text-navy-700 flex items-center justify-center transition-colors" onclick="refreshDataState()" title="بروزرسانی داده‌های سرور">
+<span class="material-symbols-outlined text-[19px] transition-transform" id="sync-spinner">sync</span>
+</button>
+<div class="relative">
+<button class="w-9 h-9 rounded-xl bg-surface-light-input border border-navy-200/60 hover:bg-navy-50 text-navy-700 flex items-center justify-center transition-colors" title="رویدادها و اعلان‌ها">
+<span class="material-symbols-outlined text-[19px]">notifications</span>
+</button>
+<span class="absolute -top-1 -right-1 w-4 h-4 bg-coral-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center ring-2 ring-white">۳</span>
+</div>
+<div class="h-6 w-px bg-border-light mx-1"></div>
+<!-- Direct Live Site Link -->
+<a class="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-navy-900 text-white hover:bg-navy-950 font-label-sm text-xs font-semibold shadow-sm transition-all" href="#" target="_blank">
+<span>مشاهده سایت اصلی</span>
+<span class="material-symbols-outlined text-[15px]">open_in_new</span>
+</a>
+</div>
+</header>
+<!-- CONTENT BODY -->
+<main class="p-6 md:p-8 space-y-6">
+<!-- BANNER: ENVIRONMENT & QUICK HIGHLIGHTS -->
+<div class="bg-gradient-to-l from-navy-950 via-navy-900 to-navy-800 text-white rounded-2xl p-6 shadow-xl relative overflow-hidden border border-navy-700/60">
+<div class="absolute -left-12 -top-12 w-64 h-64 bg-coral-500/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute right-1/3 bottom-0 w-80 h-32 bg-sky-500/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+<div class="space-y-2">
+<div class="flex items-center flex-wrap gap-2.5">
+<span class="px-2.5 py-1 rounded-lg bg-coral-500 text-white font-label-sm text-xs font-bold flex items-center gap-1 shadow-md">
+<span class="material-symbols-outlined text-[14px]">tune</span>
+                پیشخوان عملیات Django Unfold
+              </span>
+<span class="px-2.5 py-1 rounded-lg bg-navy-800 text-navy-200 border border-navy-700 font-mono text-xs">
+                Django v5.1.4 / Redis Queue: OK
+              </span>
+<span class="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                ۳۴۲ تکنسین آنلاین در شیفت
+              </span>
+</div>
+<h1 class="font-headline-lg text-2xl md:text-3xl text-white font-normal tracking-wide">
+              اتاق کنترل، تایید سفارشات و تعرفه‌گذاری زنده
+            </h1>
+<p class="font-body-sm text-xs md:text-sm text-navy-300 max-w-2xl">
+              تغییر متغیرها، تایید سفارش‌های خانگی در صف انتشار و کنترل سهمیه تکنسین‌ها به طور خودکار از طریق وب‌سوکت با تمام اپلیکیشن‌ها همگام‌سازی می‌شود.
+            </p>
+</div>
+<!-- Quick Actions Cluster -->
+<div class="flex items-center flex-wrap sm:flex-nowrap gap-3 self-start lg:self-center">
+<button class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-coral-500 to-coral-600 hover:from-coral-600 hover:to-coral-700 text-white font-label-md text-sm font-bold shadow-lg shadow-coral-500/25 active:scale-95 transition-all" onclick="syncAllToDatabase()">
+<span class="material-symbols-outlined text-[20px]">save</span>
+<span>اعمال سراسری به مدل‌های جنگو</span>
+</button>
+<button class="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-navy-800/90 hover:bg-navy-700 text-white border border-navy-600/70 font-label-md text-sm transition-all" onclick="switchTab('tab-moderation')">
+<span class="material-symbols-outlined text-[18px]">rule</span>
+<span>صف بررسی (۴)</span>
+</button>
+</div>
+</div>
+</div>
+<!-- KPI METRIC CARDS -->
+<div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4">
+<!-- KPI 1 -->
+<div class="bg-white rounded-2xl p-4 border border-border-light shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between text-navy-500 mb-2">
+<span class="font-label-sm text-xs font-bold">کل سفارشات ماه</span>
+<span class="material-symbols-outlined text-[18px] text-semantic-info">analytics</span>
+</div>
+<div class="flex items-baseline justify-between">
+<span class="font-stat-number text-2xl text-navy-950 font-normal">۱,۴۲۰</span>
+<span class="font-label-sm text-[11px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded">+۱۴٪</span>
+</div>
+<div class="w-full bg-slate-100 h-1.5 rounded-full mt-2.5 overflow-hidden">
+<div class="bg-blue-600 h-full rounded-full" style="width: 78%"></div>
+</div>
+</div>
+<!-- KPI 2 (Urgent Queue) -->
+<div class="bg-white rounded-2xl p-4 border-2 border-coral-400/60 shadow-sm relative overflow-hidden group hover:border-coral-500 transition-colors">
+<div class="absolute top-0 right-0 left-0 h-1 bg-coral-500"></div>
+<div class="flex items-center justify-between text-navy-500 mb-2">
+<span class="font-label-sm text-xs font-bold text-coral-700">در انتظار تایید ادمین</span>
+<span class="material-symbols-outlined text-[18px] text-coral-600 animate-bounce">pending_actions</span>
+</div>
+<div class="flex items-baseline justify-between">
+<span class="font-stat-number text-2xl text-coral-600 font-normal" id="kpi-pending-count">۴</span>
+<span class="font-label-sm text-[11px] font-bold text-coral-800 bg-coral-100 px-1.5 py-0.5 rounded">نیاز به اقدام</span>
+</div>
+<span class="block text-[11px] text-navy-400 mt-2 truncate">میانگین معطلی: ۴ دقیقه</span>
+</div>
+<!-- KPI 3 -->
+<div class="bg-white rounded-2xl p-4 border border-border-light shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between text-navy-500 mb-2">
+<span class="font-label-sm text-xs font-bold">درآمد ناخالص</span>
+<span class="material-symbols-outlined text-[18px] text-emerald-600">payments</span>
+</div>
+<div class="flex items-baseline justify-between">
+<span class="font-stat-number text-2xl text-navy-950 font-normal">۸۴.۵ <span class="font-body-sm text-xs text-navy-400 font-normal">م.ت</span></span>
+<span class="font-label-sm text-[11px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded">۱۲٪ سهم</span>
+</div>
+<span class="block text-[11px] text-emerald-700 mt-2 truncate">۱۰.۱ م.ت کمیسیون خالص فیکس‌بابا</span>
+</div>
+<!-- KPI 4 -->
+<div class="bg-white rounded-2xl p-4 border border-border-light shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between text-navy-500 mb-2">
+<span class="font-label-sm text-xs font-bold">تکنسین‌های تایید شده</span>
+<span class="material-symbols-outlined text-[18px] text-navy-600">engineering</span>
+</div>
+<div class="flex items-baseline justify-between">
+<span class="font-stat-number text-2xl text-navy-950 font-normal">۳۴۲</span>
+<span class="font-label-sm text-[11px] font-bold text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded">۲۹ در صف KYC</span>
+</div>
+<div class="w-full bg-slate-100 h-1.5 rounded-full mt-2.5 overflow-hidden flex">
+<div class="bg-navy-800 h-full w-[88%]"></div>
+<div class="bg-coral-500 h-full w-[12%]"></div>
+</div>
+</div>
+<!-- KPI 5 -->
+<div class="bg-white rounded-2xl p-4 border border-border-light shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between text-navy-500 mb-2">
+<span class="font-label-sm text-xs font-bold">نرخ حل بدون اختلاف</span>
+<span class="material-symbols-outlined text-[18px] text-emerald-600">verified</span>
+</div>
+<div class="flex items-baseline justify-between">
+<span class="font-stat-number text-2xl text-navy-950 font-normal">۹۸.۴٪</span>
+<span class="font-label-sm text-[11px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded">عالی</span>
+</div>
+<span class="block text-[11px] text-navy-400 mt-2 truncate">۱ اختلاف باز نیازمند داوری</span>
+</div>
+<!-- KPI 6 -->
+<div class="bg-white rounded-2xl p-4 border border-border-light shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between text-navy-500 mb-2">
+<span class="font-label-sm text-xs font-bold">تسویه روزانه پایا</span>
+<span class="material-symbols-outlined text-[18px] text-navy-700">account_balance</span>
+</div>
+<div class="flex items-baseline justify-between">
+<span class="font-stat-number text-2xl text-navy-950 font-normal">۵۰.۰ <span class="font-body-sm text-xs text-navy-400 font-normal">م.ت</span></span>
+<span class="font-label-sm text-[11px] font-bold text-blue-700 bg-blue-50 px-1.5 py-0.5 rounded">سقف مجاز</span>
+</div>
+<span class="block text-[11px] text-navy-500 mt-2 truncate">۳۸.۲ م.ت امروز با موفقیت واریز شد</span>
+</div>
+</div>
+<!-- MAIN TABS NAVIGATION (DJANGO UNFOLD SEGMENTED PILL SWITCHER) -->
+<div class="bg-white rounded-2xl p-2 border border-border-light shadow-sm flex flex-wrap items-center justify-between gap-3">
+<div class="flex items-center flex-wrap gap-1.5">
+<button class="tab-pill px-4 py-2.5 rounded-xl font-label-md text-xs sm:text-sm font-bold transition-all flex items-center gap-2 bg-navy-950 text-white shadow-sm" id="pill-moderation" onclick="switchTab('tab-moderation')">
+<span class="material-symbols-outlined text-[18px]">checklist</span>
+<span>۱. تایید و نظارت بر سفارش‌ها</span>
+<span class="px-2 py-0.5 rounded-full text-xs font-bold bg-coral-500 text-white" id="badge-tab-count">۴</span>
+</button>
+<button class="tab-pill px-4 py-2.5 rounded-xl font-label-md text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 text-navy-600 hover:text-navy-950 hover:bg-slate-100" id="pill-pricing" onclick="switchTab('tab-pricing')">
+<span class="material-symbols-outlined text-[18px]">currency_exchange</span>
+<span>۲. موتور قیمت‌گذاری و ضرایب لحظه‌ای</span>
+</button>
+<button class="tab-pill px-4 py-2.5 rounded-xl font-label-md text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 text-navy-600 hover:text-navy-950 hover:bg-slate-100" id="pill-kyc" onclick="switchTab('tab-kyc')">
+<span class="material-symbols-outlined text-[18px]">shield_person</span>
+<span>۳. سهمیه‌ها و محدودیت‌های KYC</span>
+</button>
+<button class="tab-pill px-4 py-2.5 rounded-xl font-label-md text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 text-navy-600 hover:text-navy-950 hover:bg-slate-100" id="pill-audit" onclick="switchTab('tab-audit')">
+<span class="material-symbols-outlined text-[18px]">stream</span>
+<span>۴. لاگ زنده تراکنش‌های سیستم</span>
+</button>
+</div>
+<!-- Filter / Quick Action for active tab -->
+<div class="flex items-center gap-2 mr-auto px-2">
+<span class="text-xs text-navy-400 font-label-sm">وضعیت صف:</span>
+<span class="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 font-label-sm text-xs font-bold border border-emerald-200">در حال پذیرش سفارش</span>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- TAB 1: MODERATION & APPROVAL QUEUE PANEL  -->
+<!-- ========================================== -->
+<section class="tab-content space-y-4" id="tab-moderation">
+<!-- Moderation Header Card -->
+<div class="bg-white rounded-2xl border border-border-light shadow-sm p-6">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-navy-100">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-2xl bg-coral-50 border border-coral-200 flex items-center justify-center text-coral-600">
+<span class="material-symbols-outlined text-[28px]">verified</span>
+</div>
+<div>
+<h2 class="font-headline-md text-xl text-navy-950 font-normal">صف بررسی و تایید سفارش‌های مشتریان قبل از انتشار عمومی</h2>
+<p class="font-body-sm text-xs text-navy-500 mt-0.5">
+                  جهت جلوگیری از قیمت‌گذاری نامتعارف و ارتقای امنیت پلتفرم، تمامی درخواست‌های کاربران پیش از ارسال به تکنسین‌ها نیازمند تایید ناظر هستند.
+                </p>
+</div>
+</div>
+<!-- Filters -->
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-label-sm text-xs text-navy-500">فیلتر فوری:</span>
+<button class="px-3 py-1.5 rounded-xl bg-navy-900 text-white font-label-sm text-xs font-semibold">همه (۴)</button>
+<button class="px-3 py-1.5 rounded-xl bg-slate-100 text-navy-700 hover:bg-slate-200 font-label-sm text-xs">فقط اورژانسی</button>
+<button class="px-3 py-1.5 rounded-xl bg-slate-100 text-navy-700 hover:bg-slate-200 font-label-sm text-xs">نیاز به تصحیح قیمت</button>
+</div>
+</div>
+<!-- Moderation Table -->
+<div class="overflow-x-auto mt-4">
+<table class="w-full text-right border-collapse">
+<thead>
+<tr class="bg-slate-50 text-navy-700 font-label-sm text-xs uppercase tracking-wider border-b border-border-light">
+<th class="py-3.5 px-4 rounded-r-xl">شناسه و دستگاه</th>
+<th class="py-3.5 px-4">مشتری و محله</th>
+<th class="py-3.5 px-4">شرح عیب گزارش‌شده</th>
+<th class="py-3.5 px-4">برآورد کارشناسی اولیه (تومان)</th>
+<th class="py-3.5 px-4">فوریت زمانی</th>
+<th class="py-3.5 px-4 text-center rounded-l-xl">عملیات ناظر (Django Actions)</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-navy-100 font-body-sm text-xs" id="approval-table-body">
+<!-- ITEM 1 -->
+<tr class="hover:bg-slate-50/80 transition-colors group" id="req-8902">
+<td class="py-4 px-4">
+<div class="flex items-center gap-3">
+<div class="relative w-14 h-14 rounded-xl bg-slate-100 border border-slate-200 overflow-hidden flex-shrink-0 group-hover:shadow-md transition-shadow">
+<img alt="یخچال ال‌جی" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcdhdc_VqMzeghI-6nSaqaZC6JfJPnFqAVlhtIKVAyGaD65V9E-d-_NHuXkyJWYPqmNl8BV1uHHhSeM7puV5B7MZ0JSEZ4Px8haqrZeqPoTKFEijDNXzfPEGHEjrUMp7ihL8lKDB6LGG9Fu-gkR-YdNvxEEj9G-J8OoCf3LkMbOGJ66ZVFpRR9IFWPAfKKlnGGr4-lNcdvoHktBIM2e0hI_BJoK3P4syFq3VxVl58Jno67i049ehwoqA"/>
+<span class="absolute bottom-0 right-0 bg-navy-950/80 text-white text-[9px] px-1 font-mono">LG</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-sm text-navy-950 font-bold flex items-center gap-1.5">
+                          #FX-8902
+                          <span class="px-1.5 py-0.5 rounded text-[10px] bg-slate-100 text-navy-600 font-semibold">یخچال ساید</span>
+</span>
+<span class="font-label-sm text-xs text-navy-500 mt-0.5">سایدبای‌ساید مدل اینورتر ال‌جی</span>
+<span class="text-[10px] text-navy-400 mt-1">۱۰ دقیقه پیش ثبت شده</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<span class="font-label-md text-xs font-bold text-navy-950">سارا مهدوی‌نیا</span>
+<span class="text-xs text-navy-500">تهران، سعادت‌آباد</span>
+<span class="font-mono text-[11px] text-navy-400">0912***4821</span>
+</div>
+</td>
+<td class="py-4 px-4 max-w-xs">
+<p class="text-xs text-navy-800 line-clamp-2 leading-relaxed">
+                      کمپرسور صدا می‌دهد و دمای فریزر مدام افت می‌کند. ارور سنسور یخ‌زدایی روی نمایشگر دیجیتال چشمک می‌زند.
+                    </p>
+<span class="inline-flex items-center gap-1 text-[11px] text-coral-700 bg-coral-50 border border-coral-200 px-2 py-0.5 rounded-md mt-1 font-medium">
+<span class="material-symbols-outlined text-[13px]">bolt</span>
+                      اعزام تکنسین با دستگاه نشت‌یاب
+                    </span>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<input class="w-28 h-8 px-2 rounded-lg bg-surface-light-input border border-navy-200 text-xs font-bold text-navy-900 focus:bg-white focus:border-coral-500" id="price-8902" type="text" value="۱,۲۰۰,۰۰۰"/>
+<span class="text-[11px] text-navy-500">تومان</span>
+</div>
+<span class="text-[10px] text-navy-400 mt-1">نرخ پایه + بیعانه ورودی</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-coral-100 text-coral-800 border border-coral-200 flex items-center gap-1 w-fit">
+<span class="w-1.5 h-1.5 rounded-full bg-coral-600 animate-ping"></span>
+                      اورژانسی (امروز)
+                    </span>
+</td>
+<td class="py-4 px-4 text-center">
+<div class="flex items-center justify-center gap-1.5">
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-semantic-success hover:bg-emerald-700 text-white font-label-sm text-xs font-bold shadow-sm hover:shadow transition-all active:scale-95" onclick="approveOrder('8902', 'سارا مهدوی‌نیا')" title="تایید فوری و نمایش برای ۳۴۲ متخصص">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>تایید و انتشار</span>
+</button>
+<button class="flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-navy-800 font-label-sm text-xs transition-colors" onclick="openEditModal('8902', 'سارا مهدوی‌نیا', 'یخچال ساید اینورتر ال‌جی', '۱,۲۰۰,۰۰۰')" title="ویرایش جزئیات">
+<span class="material-symbols-outlined text-[16px]">edit_note</span>
+<span>اصلاح</span>
+</button>
+<button class="w-8 h-8 rounded-xl bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 flex items-center justify-center transition-colors" onclick="rejectOrder('8902')" title="رد سفارش">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ITEM 2 -->
+<tr class="hover:bg-slate-50/80 transition-colors group" id="req-8903">
+<td class="py-4 px-4">
+<div class="flex items-center gap-3">
+<div class="relative w-14 h-14 rounded-xl bg-slate-100 border border-slate-200 overflow-hidden flex-shrink-0 group-hover:shadow-md transition-shadow">
+<img alt="ماشین لباسشویی بوش" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmVAlHC1ifo6iQKS3uCKxuR7yaiaaEwGz1muoIUE7nSqt4Pov0VMau6PcH_XWQEi0Tsy1br8QHQQATS8mrxt80evnPuBGXDOP-snIwK90L_VC3PRzr_9aXBkTCshPc9tha99E6UyiTNj1XPvf4BmzLRZghFZwOEoWkMuM9pDrC4ELOpHCA757HCpz6kcb-TL-LaF25cUD5Qp1Rs6BgYQxxLqIG2Q6uBM0DYfCDLIemY_s_zMfh6rI7pg"/>
+<span class="absolute bottom-0 right-0 bg-navy-950/80 text-white text-[9px] px-1 font-mono">BOSCH</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-sm text-navy-950 font-bold flex items-center gap-1.5">
+                          #FX-8903
+                          <span class="px-1.5 py-0.5 rounded text-[10px] bg-slate-100 text-navy-600 font-semibold">لباسشویی</span>
+</span>
+<span class="font-label-sm text-xs text-navy-500 mt-0.5">ماشین لباسشویی ۹ کیلویی سری ۸</span>
+<span class="text-[10px] text-navy-400 mt-1">۲۴ دقیقه پیش ثبت شده</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<span class="font-label-md text-xs font-bold text-navy-950">کامران جلالی</span>
+<span class="text-xs text-navy-500">تهران، کوی نصر (گیشا)</span>
+<span class="font-mono text-[11px] text-navy-400">0935***1902</span>
+</div>
+</td>
+<td class="py-4 px-4 max-w-xs">
+<p class="text-xs text-navy-800 line-clamp-2 leading-relaxed">
+                      تخلیه آب انجام نمی‌شود و در مرحله خشک‌کن با ارور E18 قفل می‌کند. پمپ تخلیه تمیز شده اما مشکل حل نشد.
+                    </p>
+<span class="inline-flex items-center gap-1 text-[11px] text-blue-700 bg-blue-50 border border-blue-200 px-2 py-0.5 rounded-md mt-1 font-medium">
+                      تعویض یا تعمیر پمپ تخلیه
+                    </span>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<input class="w-28 h-8 px-2 rounded-lg bg-surface-light-input border border-navy-200 text-xs font-bold text-navy-900 focus:bg-white focus:border-coral-500" id="price-8903" type="text" value="۸۵۰,۰۰۰"/>
+<span class="text-[11px] text-navy-500">تومان</span>
+</div>
+<span class="text-[10px] text-navy-400 mt-1">اجرت مصوب صنف</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-blue-100 text-blue-800 border border-blue-200 flex items-center gap-1 w-fit">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                      عادی (رزرو فردا)
+                    </span>
+</td>
+<td class="py-4 px-4 text-center">
+<div class="flex items-center justify-center gap-1.5">
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-semantic-success hover:bg-emerald-700 text-white font-label-sm text-xs font-bold shadow-sm hover:shadow transition-all active:scale-95" onclick="approveOrder('8903', 'کامران جلالی')">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>تایید و انتشار</span>
+</button>
+<button class="flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-navy-800 font-label-sm text-xs transition-colors" onclick="openEditModal('8903', 'کامران جلالی', 'لباسشویی ۹ کیلویی بوش', '۸۵۰,۰۰۰')">
+<span class="material-symbols-outlined text-[16px]">edit_note</span>
+<span>اصلاح</span>
+</button>
+<button class="w-8 h-8 rounded-xl bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 flex items-center justify-center transition-colors" onclick="rejectOrder('8903')">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ITEM 3 -->
+<tr class="hover:bg-slate-50/80 transition-colors group" id="req-8904">
+<td class="py-4 px-4">
+<div class="flex items-center gap-3">
+<div class="relative w-14 h-14 rounded-xl bg-slate-100 border border-slate-200 overflow-hidden flex-shrink-0 group-hover:shadow-md transition-shadow">
+<img alt="پکیج دیواری" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAW7lKp72lWGjz2mEcyfGoX0UAGIJBYbHdwUiMi25eCi-dD6cwT6gxlp8G1RUePNssyZhv7_BYtDvJeXNsFh4---uSjsm7Q_p5-9BAmjYzl4uRzu1YHJbKMLnDEMN9-EGs8JfaOsxHpD8Ci-G-aCDQViDsFydM4POiMW_pTvNnFQW68JVMaqzINaD0DPWNdpIGokKiFOEX4QpTY4pI2ftQANc767Ah6bVRo9meheakaMOprL9Un47Tucg"/>
+<span class="absolute bottom-0 right-0 bg-navy-950/80 text-white text-[9px] px-1 font-mono">BUTANE</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-sm text-navy-950 font-bold flex items-center gap-1.5">
+                          #FX-8904
+                          <span class="px-1.5 py-0.5 rounded text-[10px] bg-slate-100 text-navy-600 font-semibold">پکیج شوفاژ</span>
+</span>
+<span class="font-label-sm text-xs text-navy-500 mt-0.5">پکیج دیواری بوتان ۲۴ هزار</span>
+<span class="text-[10px] text-navy-400 mt-1">۴۱ دقیقه پیش ثبت شده</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<span class="font-label-md text-xs font-bold text-navy-950">پروین اشتیاقی</span>
+<span class="text-xs text-navy-500">کرج، مهرشهر</span>
+<span class="font-mono text-[11px] text-navy-400">0912***9934</span>
+</div>
+</td>
+<td class="py-4 px-4 max-w-xs">
+<p class="text-xs text-navy-800 line-clamp-2 leading-relaxed">
+                      فشار بار به صفر می‌رسد و آب گرم بعد از ۱ دقیقه سرد می‌شود. بوی دود ملایم احساس شده و مبدل اصلی نیاز به رسوب‌زدایی دارد.
+                    </p>
+<span class="inline-flex items-center gap-1 text-[11px] text-red-700 bg-red-50 border border-red-200 px-2 py-0.5 rounded-md mt-1 font-bold">
+<span class="material-symbols-outlined text-[13px]">warning</span>
+                      نقص ایمنی دودکش و مبدل
+                    </span>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<input class="w-28 h-8 px-2 rounded-lg bg-surface-light-input border border-navy-200 text-xs font-bold text-navy-900 focus:bg-white focus:border-coral-500" id="price-8904" type="text" value="۱,۱۰۰,۰۰۰"/>
+<span class="text-[11px] text-navy-500">تومان</span>
+</div>
+<span class="text-[10px] text-navy-400 mt-1">اسیدشویی دو مبدله</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-red-100 text-red-800 border border-red-200 flex items-center gap-1 w-fit">
+<span class="w-1.5 h-1.5 rounded-full bg-red-600 animate-ping"></span>
+                      بحرانی (فوریت بالا)
+                    </span>
+</td>
+<td class="py-4 px-4 text-center">
+<div class="flex items-center justify-center gap-1.5">
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-semantic-success hover:bg-emerald-700 text-white font-label-sm text-xs font-bold shadow-sm hover:shadow transition-all active:scale-95" onclick="approveOrder('8904', 'پروین اشتیاقی')">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>تایید و انتشار</span>
+</button>
+<button class="flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-navy-800 font-label-sm text-xs transition-colors" onclick="openEditModal('8904', 'پروین اشتیاقی', 'پکیج شوفاژ دیواری بوتان', '۱,۱۰۰,۰۰۰')">
+<span class="material-symbols-outlined text-[16px]">edit_note</span>
+<span>اصلاح</span>
+</button>
+<button class="w-8 h-8 rounded-xl bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 flex items-center justify-center transition-colors" onclick="rejectOrder('8904')">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ITEM 4 -->
+<tr class="hover:bg-slate-50/80 transition-colors group" id="req-8905">
+<td class="py-4 px-4">
+<div class="flex items-center gap-3">
+<div class="relative w-14 h-14 rounded-xl bg-slate-100 border border-slate-200 overflow-hidden flex-shrink-0 group-hover:shadow-md transition-shadow flex items-center justify-center text-navy-700 bg-gradient-to-br from-slate-100 to-slate-200">
+<span class="material-symbols-outlined text-[32px] text-navy-600">mode_fan</span>
+<span class="absolute bottom-0 right-0 bg-navy-950/80 text-white text-[9px] px-1 font-mono">O-GENERAL</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-sm text-navy-950 font-bold flex items-center gap-1.5">
+                          #FX-8905
+                          <span class="px-1.5 py-0.5 rounded text-[10px] bg-slate-100 text-navy-600 font-semibold">کولر گازی</span>
+</span>
+<span class="font-label-sm text-xs text-navy-500 mt-0.5">اسپلیت ۲۴۰۰۰ اجنرال</span>
+<span class="text-[10px] text-navy-400 mt-1">۵۵ دقیقه پیش ثبت شده</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<span class="font-label-md text-xs font-bold text-navy-950">محمدرضا کاظمی</span>
+<span class="text-xs text-navy-500">تهران، نیاوران</span>
+<span class="font-mono text-[11px] text-navy-400">0912***3310</span>
+</div>
+</td>
+<td class="py-4 px-4 max-w-xs">
+<p class="text-xs text-navy-800 line-clamp-2 leading-relaxed">
+                      پرتاب باد خنک نیست و یونیت خارجی بعد از ۵ دقیقه کارکرد خاموش می‌شود. احتمال کمبود گاز مبرد R410.
+                    </p>
+<span class="inline-flex items-center gap-1 text-[11px] text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-md mt-1 font-medium">
+                      شارژ گاز تکمیلی + سرویس کندانسور
+                    </span>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<input class="w-28 h-8 px-2 rounded-lg bg-surface-light-input border border-navy-200 text-xs font-bold text-navy-900 focus:bg-white focus:border-coral-500" id="price-8905" type="text" value="۱,۶۵۰,۰۰۰"/>
+<span class="text-[11px] text-navy-500">تومان</span>
+</div>
+<span class="text-[10px] text-navy-400 mt-1">تخمین کارشناس FixBaba</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-amber-100 text-amber-800 border border-amber-200 flex items-center gap-1 w-fit">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span>
+                      فوری (طی ۴ ساعت)
+                    </span>
+</td>
+<td class="py-4 px-4 text-center">
+<div class="flex items-center justify-center gap-1.5">
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-semantic-success hover:bg-emerald-700 text-white font-label-sm text-xs font-bold shadow-sm hover:shadow transition-all active:scale-95" onclick="approveOrder('8905', 'محمدرضا کاظمی')">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>تایید و انتشار</span>
+</button>
+<button class="flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-navy-800 font-label-sm text-xs transition-colors" onclick="openEditModal('8905', 'محمدرضا کاظمی', 'کولر گازی ۲۴۰۰۰ اجنرال', '۱,۶۵۰,۰۰۰')">
+<span class="material-symbols-outlined text-[16px]">edit_note</span>
+<span>اصلاح</span>
+</button>
+<button class="w-8 h-8 rounded-xl bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 flex items-center justify-center transition-colors" onclick="rejectOrder('8905')">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- TAB 2: LIVE PRICING & TARIFF MATRIX PANEL  -->
+<!-- ========================================== -->
+<section class="tab-content space-y-6 hidden" id="tab-pricing">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Global Dynamic Sliders (Col-span-12 or 7) -->
+<div class="lg:col-span-6 bg-white rounded-2xl border border-border-light shadow-sm p-6 space-y-5">
+<div class="flex items-center justify-between pb-3 border-b border-border-light">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-xl bg-coral-50 text-coral-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">percent</span>
+</div>
+<div>
+<h3 class="font-headline-md text-lg text-navy-950 font-normal">کمیسیون پایه و بیعانه کارشناسی</h3>
+<p class="text-xs text-navy-500">متغیرهای مدل CommissionConfig جنگو</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">فعال در سراسر کشور</span>
+</div>
+<!-- Commission Slider & Input -->
+<div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-3">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-xs font-bold text-navy-900" for="commission-range">درصد کمیسیون پایه پلتفرم (FixBaba Cut)</label>
+<div class="flex items-center gap-1.5">
+<input class="w-16 h-8 text-center rounded-lg bg-white border border-navy-200 font-headline-md text-base text-coral-600 font-bold focus:border-coral-500" id="commission-input" max="30" min="5" onchange="syncCommission(this.value)" type="number" value="12"/>
+<span class="text-xs font-bold text-navy-600">٪</span>
+</div>
+</div>
+<input class="w-full accent-coral-500 cursor-pointer" id="commission-range" max="25" min="5" oninput="syncCommission(this.value)" step="1" type="range" value="12"/>
+<p class="text-[11px] text-navy-500 leading-relaxed">
+                این درصد به صورت خودکار از هر تراکنش تکمیل شده در فاکتور نهایی تعمیرکار کسر و به حساب واسط واریز می‌شود.
+              </p>
+</div>
+<!-- Base Visit Fee (بیعانه ورودی) -->
+<div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-3">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-xs font-bold text-navy-900" for="input-deposit-val">حداقل بیعانه اعزام کارشناس به محل</label>
+<span class="px-2 py-0.5 rounded bg-blue-50 text-blue-700 text-[11px] font-bold">ضمانت حضور تکنسین</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="relative flex-1">
+<input class="w-full h-10 px-3 bg-white border border-navy-200 rounded-xl font-headline-md text-lg text-navy-950 focus:border-coral-500 focus:outline-none" id="input-deposit-val" type="text" value="۲۵۰,۰۰۰"/>
+<span class="absolute left-3 top-2.5 text-xs text-navy-400 font-medium">تومان</span>
+</div>
+<button class="h-10 px-4 rounded-xl bg-navy-900 hover:bg-navy-950 text-white font-label-sm text-xs font-bold transition-all shadow-sm" onclick="saveSettingToast('حداقل بیعانه ورودی')">
+                  ثبت تغییر
+                </button>
+</div>
+<p class="text-[11px] text-navy-500">
+                در صورت انجام خدمات توسط تکنسین، کل این مبلغ از فاکتور پایانی مشتری کسر می‌گردد.
+              </p>
+</div>
+<!-- Tech Discount Limit -->
+<div class="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 border border-slate-200/80">
+<div class="flex flex-col">
+<span class="font-label-md text-xs font-bold text-navy-900">سقف تخفیف مجاز تکنسین به مشتری</span>
+<span class="text-[11px] text-navy-400">حداکثر درصد کسر برای جذب کار فوری</span>
+</div>
+<div class="flex items-center gap-2">
+<select class="h-9 px-3 bg-white border border-navy-200 rounded-lg text-xs font-bold text-navy-900 focus:ring-1 focus:ring-coral-500">
+<option value="5">۵ درصد</option>
+<option selected="" value="10">۱۰ درصد</option>
+<option value="15">۱۵ درصد</option>
+<option value="20">۲۰ درصد</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Dynamic Urgency Multipliers Card -->
+<div class="lg:col-span-6 bg-white rounded-2xl border border-border-light shadow-sm p-6 space-y-4">
+<div class="flex items-center justify-between pb-3 border-b border-border-light">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">speed</span>
+</div>
+<div>
+<h3 class="font-headline-md text-lg text-navy-950 font-normal">ضرایب دینامیک فوریت زمانی (Urgency Multipliers)</h3>
+<p class="text-xs text-navy-500">محاسبه خودکار اجرت بر اساس زمان اعزام</p>
+</div>
+</div>
+</div>
+<!-- Multiplier 1: Regular -->
+<div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
+<span class="font-label-md text-xs font-bold text-navy-900">سفارش عادی (رزرو ۲۴ ساعت آینده به بعد)</span>
+</div>
+<span class="font-headline-md text-lg text-navy-900 font-bold" id="label-mult-1">1.0x</span>
+</div>
+<input class="accent-blue-600 cursor-pointer" max="1.3" min="1.0" oninput="document.getElementById('label-mult-1').innerText = this.value + 'x'" step="0.05" type="range" value="1.0"/>
+<div class="flex justify-between text-[11px] text-navy-400">
+<span>پایه نرخ استاندارد صنف</span>
+<span>ضریب بدون اضافه بها</span>
+</div>
+</div>
+<!-- Multiplier 2: Urgent -->
+<div class="p-3.5 rounded-xl bg-coral-50/60 border border-coral-200 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-coral-500"></span>
+<span class="font-label-md text-xs font-bold text-coral-950">سفارش فوری (اعزام طی ۴ ساعت)</span>
+</div>
+<span class="font-headline-md text-lg text-coral-600 font-bold" id="label-mult-2">1.3x</span>
+</div>
+<input class="accent-coral-500 cursor-pointer" max="1.8" min="1.1" oninput="document.getElementById('label-mult-2').innerText = this.value + 'x'" step="0.05" type="range" value="1.3"/>
+<div class="flex justify-between text-[11px] text-coral-800">
+<span>+۳۰٪ پاداش اعزام سریع تکنسین</span>
+<span>اولویت در ناتیفیکیشن متخصصین</span>
+</div>
+</div>
+<!-- Multiplier 3: Emergency / Night Shift -->
+<div class="p-3.5 rounded-xl bg-red-50/60 border border-red-200 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse"></span>
+<span class="font-label-md text-xs font-bold text-red-950">بحرانی و اورژانس شبانه (۲۲ الی ۷ صبح)</span>
+</div>
+<span class="font-headline-md text-lg text-red-600 font-bold" id="label-mult-3">1.6x</span>
+</div>
+<input class="accent-red-600 cursor-pointer" max="2.5" min="1.3" oninput="document.getElementById('label-mult-3').innerText = this.value + 'x'" step="0.1" type="range" value="1.6"/>
+<div class="flex justify-between text-[11px] text-red-700">
+<span>+۶۰٪ اضافه دریافتی شیفت شب</span>
+<span>اعزام فوری با تضمین حل نشت/نقص</span>
+</div>
+</div>
+<button class="w-full h-10 rounded-xl bg-slate-900 hover:bg-black text-white font-label-md text-xs font-bold transition-all flex items-center justify-center gap-2" onclick="saveSettingToast('ضرایب فوریت زمانی')">
+<span class="material-symbols-outlined text-[18px]">cached</span>
+<span>ذخیره ضرایب لحظه‌ای در دیتابیس کلاستر</span>
+</button>
+</div>
+</div>
+<!-- Category Tariff Matrix (Row-Level Direct Edit) -->
+<div class="bg-white rounded-2xl border border-border-light shadow-sm p-6 space-y-4">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-border-light">
+<div>
+<h3 class="font-headline-md text-lg text-navy-950 font-normal">ماتریس تعرفه‌های مرجع لوازم خانگی (Tariff Matrix)</h3>
+<p class="text-xs text-navy-500">حداقل اجرت عیب‌یابی و سقف مجاز دستمزد به تفکیک دسته‌بندی</p>
+</div>
+<button class="px-4 py-2 rounded-xl bg-coral-500 hover:bg-coral-600 text-white font-label-sm text-xs font-bold shadow-sm transition-all flex items-center gap-1.5 self-start sm:self-auto" onclick="saveSettingToast('کلیه تعرفه‌های دسته‌بندی')">
+<span class="material-symbols-outlined text-[17px]">save</span>
+<span>ذخیره گروهی تعرفه‌ها</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-right border-collapse">
+<thead>
+<tr class="bg-slate-50 text-navy-700 font-label-sm text-xs uppercase border-b border-border-light">
+<th class="py-3 px-4 rounded-r-xl">دسته‌بندی دستگاه</th>
+<th class="py-3 px-4">پایه اجرت عیب‌یابی (تومان)</th>
+<th class="py-3 px-4">سقف اجرت کارشناسی مجاز</th>
+<th class="py-3 px-4">کمیسیون کتگوری</th>
+<th class="py-3 px-4 text-center">وضعیت دسترسی</th>
+<th class="py-3 px-4 text-center rounded-l-xl">عملیات</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-navy-100 font-body-sm text-xs">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50/70 transition-colors">
+<td class="py-3.5 px-4 font-bold text-navy-900 flex items-center gap-2">
+<span class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">kitchen</span>
+</span>
+<span>یخچال، فریزر و ساید‌بای‌ساید</span>
+</td>
+<td class="py-3.5 px-4">
+<input class="w-32 h-8 px-2.5 rounded-lg bg-surface-light-input border border-navy-200 text-xs font-semibold text-navy-900 focus:bg-white focus:border-coral-500" type="text" value="۴۵۰,۰۰۰"/>
+</td>
+<td class="py-3.5 px-4">
+<input class="w-32 h-8 px-2.5 rounded-lg bg-surface-light-input border border-navy-200 text-xs font-semibold text-navy-900 focus:bg-white focus:border-coral-500" type="text" value="۴,۸۰۰,۰۰۰"/>
+</td>
+<td class="py-3.5 px-4 font-bold text-coral-600">۱۲٪</td>
+<td class="py-3.5 px-4 text-center">
+<span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">فعال</span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<button class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-navy-800 font-label-sm text-xs font-semibold" onclick="saveSettingToast('تعرفه یخچال و سایدبای‌ساید')">ثبت ردیف</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50/70 transition-colors">
+<td class="py-3.5 px-4 font-bold text-navy-900 flex items-center gap-2">
+<span class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">local_laundry_service</span>
+</span>
+<span>ماشین لباسشویی و ظرفشویی</span>
+</td>
+<td class="py-3.5 px-4">
+<input class="w-32 h-8 px-2.5 rounded-lg bg-surface-light-input border border-navy-200 text-xs font-semibold text-navy-900 focus:bg-white focus:border-coral-500" type="text" value="۳۸۰,۰۰۰"/>
+</td>
+<td class="py-3.5 px-4">
+<input class="w-32 h-8 px-2.5 rounded-lg bg-surface-light-input border border-navy-200 text-xs font-semibold text-navy-900 focus:bg-white focus:border-coral-500" type="text" value="۳,۵۰۰,۰۰۰"/>
+</td>
+<td class="py-3.5 px-4 font-bold text-coral-600">۱۲٪</td>
+<td class="py-3.5 px-4 text-center">
+<span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">فعال</span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<button class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-navy-800 font-label-sm text-xs font-semibold" onclick="saveSettingToast('تعرفه لباسشویی و ظرفشویی')">ثبت ردیف</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50/70 transition-colors">
+<td class="py-3.5 px-4 font-bold text-navy-900 flex items-center gap-2">
+<span class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">hvac</span>
+</span>
+<span>کولر گازی و داکت اسپلیت</span>
+</td>
+<td class="py-3.5 px-4">
+<input class="w-32 h-8 px-2.5 rounded-lg bg-surface-light-input border border-navy-200 text-xs font-semibold text-navy-900 focus:bg-white focus:border-coral-500" type="text" value="۵۰۰,۰۰۰"/>
+</td>
+<td class="py-3.5 px-4">
+<input class="w-32 h-8 px-2.5 rounded-lg bg-surface-light-input border border-navy-200 text-xs font-semibold text-navy-900 focus:bg-white focus:border-coral-500" type="text" value="۶,۰۰۰,۰۰۰"/>
+</td>
+<td class="py-3.5 px-4 font-bold text-coral-600">۱۴٪</td>
+<td class="py-3.5 px-4 text-center">
+<span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">فعال</span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<button class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-navy-800 font-label-sm text-xs font-semibold" onclick="saveSettingToast('تعرفه کولر گازی')">ثبت ردیف</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-slate-50/70 transition-colors">
+<td class="py-3.5 px-4 font-bold text-navy-900 flex items-center gap-2">
+<span class="w-8 h-8 rounded-lg bg-red-50 text-red-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">water_heater</span>
+</span>
+<span>پکیج و سیستم‌های گرمایشی</span>
+</td>
+<td class="py-3.5 px-4">
+<input class="w-32 h-8 px-2.5 rounded-lg bg-surface-light-input border border-navy-200 text-xs font-semibold text-navy-900 focus:bg-white focus:border-coral-500" type="text" value="۴۰۰,۰۰۰"/>
+</td>
+<td class="py-3.5 px-4">
+<input class="w-32 h-8 px-2.5 rounded-lg bg-surface-light-input border border-navy-200 text-xs font-semibold text-navy-900 focus:bg-white focus:border-coral-500" type="text" value="۳,۲۰۰,۰۰۰"/>
+</td>
+<td class="py-3.5 px-4 font-bold text-coral-600">۱۴٪</td>
+<td class="py-3.5 px-4 text-center">
+<span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">فعال</span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<button class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-navy-800 font-label-sm text-xs font-semibold" onclick="saveSettingToast('تعرفه پکیج و گرمایش')">ثبت ردیف</button>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-slate-50/70 transition-colors">
+<td class="py-3.5 px-4 font-bold text-navy-900 flex items-center gap-2">
+<span class="w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">microwave</span>
+</span>
+<span>مایکروویو و فر برقی</span>
+</td>
+<td class="py-3.5 px-4">
+<input class="w-32 h-8 px-2.5 rounded-lg bg-surface-light-input border border-navy-200 text-xs font-semibold text-navy-900 focus:bg-white focus:border-coral-500" type="text" value="۲۵۰,۰۰۰"/>
+</td>
+<td class="py-3.5 px-4">
+<input class="w-32 h-8 px-2.5 rounded-lg bg-surface-light-input border border-navy-200 text-xs font-semibold text-navy-900 focus:bg-white focus:border-coral-500" type="text" value="۱,۹۰۰,۰۰۰"/>
+</td>
+<td class="py-3.5 px-4 font-bold text-coral-600">۱۰٪</td>
+<td class="py-3.5 px-4 text-center">
+<span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">فعال</span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<button class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-navy-800 font-label-sm text-xs font-semibold" onclick="saveSettingToast('تعرفه مایکروویو')">ثبت ردیف</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- TAB 3: KYC, QUOTAS & LIMITS PANEL         -->
+<!-- ========================================== -->
+<section class="tab-content space-y-6 hidden" id="tab-kyc">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Left Column: KYC Hard Lockdown Policy -->
+<div class="lg:col-span-7 bg-white rounded-2xl border border-border-light shadow-sm p-6 space-y-5">
+<div class="flex items-center justify-between pb-3 border-b border-border-light">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl bg-coral-50 border border-coral-200 text-coral-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">verified_user</span>
+</div>
+<div>
+<h3 class="font-headline-md text-lg text-navy-950 font-normal">قوانین و محدودیت‌های احراز هویت تکنسین‌ها (KYC Policy)</h3>
+<p class="text-xs text-navy-500">اجبار استعلام کد ملی و تاییدیه عدم سوءپیشینه</p>
+</div>
+</div>
+</div>
+<!-- KYC Warning Box -->
+<div class="p-4 rounded-xl bg-coral-50 border-r-4 border-coral-500 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-xs font-bold text-coral-950 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-coral-600 text-[18px]">lock</span>
+                  محدودیت خودکار برای تعمیرکاران تایید نشده
+                </span>
+<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-coral-200 text-coral-900">ارسال آفر مسدود است</span>
+</div>
+<p class="text-xs text-coral-900 leading-relaxed">
+                تکنسین‌های جدید پیش از احراز هویت، تنها مجاز به مشاهده حداکثر <strong>۵ سفارش اخیر</strong> در روز هستند. چت، شماره تماس مشتری و قابلیت ثبت قیمت تا تایید مدارک هویتی و پروانه کسب غیرفعال است.
+              </p>
+<div class="flex items-center justify-between pt-2 border-t border-coral-200/60 mt-1">
+<span class="text-xs text-coral-800 font-semibold">تعداد پرونده‌های منتظر بررسی اپراتور: ۲۹ نفر</span>
+<a class="text-xs font-bold text-coral-700 hover:text-coral-900 underline" href="#">مشاهده اسناد بارگذاری شده ←</a>
+</div>
+</div>
+<!-- Hard Quota Toggle Switches -->
+<div class="space-y-3">
+<!-- Switch 1 -->
+<div class="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+<div class="flex flex-col">
+<span class="font-label-md text-xs font-bold text-navy-900">اجبار استعلام برخط سامانه شاهکار و ثبت‌احوال</span>
+<span class="text-[11px] text-navy-500">تطبیق شماره موبایل تکنسین با کد ملی ثبت شده</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:right-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-600"></div>
+</label>
+</div>
+<!-- Switch 2 -->
+<div class="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+<div class="flex flex-col">
+<span class="font-label-md text-xs font-bold text-navy-900">تست مهارت فنی و گواهینامه معتبر فنی‌وحرفه‌ای</span>
+<span class="text-[11px] text-navy-500">مسدودسازی پیشنهاد قیمت در دسته‌های تخصصی فاقد مدرک</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:right-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-600"></div>
+</label>
+</div>
+<!-- Switch 3 -->
+<div class="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+<div class="flex flex-col">
+<span class="font-label-md text-xs font-bold text-navy-900">سلب دسترسی خودکار در صورت کسب ۲ امتیاز زیر ۳</span>
+<span class="text-[11px] text-navy-500">انتقال خودکار تعمیرکار به صف بازآموزی پشتیبانی</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:right-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-600"></div>
+</label>
+</div>
+</div>
+</div>
+<!-- Right Column: Quota Limits & Steppers -->
+<div class="lg:col-span-5 bg-white rounded-2xl border border-border-light shadow-sm p-6 flex flex-col justify-between space-y-5">
+<div class="space-y-4">
+<div class="flex items-center justify-between pb-3 border-b border-border-light">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">pin</span>
+</div>
+<div>
+<h3 class="font-headline-md text-lg text-navy-950 font-normal">سقف همزمان و سهمیه پیشنهادات</h3>
+<p class="text-xs text-navy-500">جلوگیری از انحصار سفارشات توسط چند تکنسین</p>
+</div>
+</div>
+</div>
+<!-- Stepper Control: Open concurrent tasks -->
+<div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-xs font-bold text-navy-900">حداکثر سفارش‌های همزمان در دست اجرا</span>
+<span class="text-[11px] text-navy-400">به ازای هر متخصص</span>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2">
+<button class="w-9 h-9 rounded-xl bg-white border border-navy-200 hover:bg-slate-100 flex items-center justify-center text-navy-700 font-bold active:scale-95 transition-all" onclick="changeStepper('stepper-concurrent', -1)">-</button>
+<input class="w-16 h-9 text-center rounded-xl bg-white border border-navy-200 font-headline-md text-lg text-navy-950 font-bold focus:border-coral-500" id="stepper-concurrent" max="10" min="1" type="number" value="3"/>
+<button class="w-9 h-9 rounded-xl bg-white border border-navy-200 hover:bg-slate-100 flex items-center justify-center text-navy-700 font-bold active:scale-95 transition-all" onclick="changeStepper('stepper-concurrent', 1)">+</button>
+</div>
+<span class="text-xs text-navy-500">سفارش همزمان فعال</span>
+</div>
+<p class="text-[11px] text-navy-400 pt-1">
+                  تا زمانی که تعمیرکار سفارش‌های جاری را تکمیل و فاکتور نکند، پیشنهاد جدیدی نمی‌تواند ارسال نماید.
+                </p>
+</div>
+<!-- Monthly Quota Input -->
+<div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-xs font-bold text-navy-900">سهمیه آفر ماهانه (تعمیرکار پلن پایه)</span>
+<span class="text-[11px] text-navy-400">شارژ خودکار اول هر ماه</span>
+</div>
+<div class="flex items-center gap-2 pt-1">
+<input class="w-24 h-9 text-center rounded-xl bg-white border border-navy-200 font-headline-md text-lg text-navy-950 font-bold focus:border-coral-500" id="monthly-quota" type="number" value="40"/>
+<span class="text-xs text-navy-600 font-bold">پیشنهاد در ماه</span>
+</div>
+<p class="text-[11px] text-navy-400">
+                  برای تکنسین‌های دارای اشتراک طلایی فیکس‌بابا، این سهمیه نامحدود خواهد بود.
+                </p>
+</div>
+</div>
+<!-- Save CTA -->
+<button class="w-full h-12 rounded-xl bg-gradient-to-r from-coral-500 to-coral-600 hover:from-coral-600 hover:to-coral-700 text-white font-label-md text-sm font-bold shadow-md shadow-coral-500/20 transition-all flex items-center justify-center gap-2 active:scale-98" onclick="saveSettingToast('قوانین و سهمیه‌های تکنسین‌ها')">
+<span class="material-symbols-outlined text-[20px]">save</span>
+<span>اعمال سراسری تغییرات در دیتابیس (Sync Django Models)</span>
+</button>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- TAB 4: SYSTEM AUDIT & EVENT LOGS          -->
+<!-- ========================================== -->
+<section class="tab-content space-y-4 hidden" id="tab-audit">
+<div class="bg-white rounded-2xl border border-border-light shadow-sm p-6 space-y-4">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-border-light">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">history</span>
+</div>
+<div>
+<h3 class="font-headline-md text-lg text-navy-950 font-normal">لاگ زنده رویدادهای سیستم و ردپای تغییرات (Django Audit Log)</h3>
+<p class="text-xs text-navy-500">ثبت رخدادها با جزئیات IP، مدل تغییریافته و هویت اپراتور</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+<span class="text-xs text-navy-600 font-label-sm font-bold">جریان زنده فعال (Live WebSocket)</span>
+</div>
+</div>
+<!-- Log items grid -->
+<div class="space-y-2.5" id="audit-log-container">
+<!-- Event 1 -->
+<div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 flex flex-col md:flex-row md:items-center justify-between gap-3 hover:bg-slate-100/70 transition-colors">
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[17px]">verified</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-label-md text-xs font-bold text-navy-950">احراز هویت تکنسین تایید شد</span>
+<span class="font-mono text-[10px] bg-slate-200 text-navy-700 px-1.5 py-0.5 rounded">TechnicianProfile#921</span>
+<span class="text-[10px] text-emerald-600 font-bold">STATUS: VERIFIED</span>
+</div>
+<span class="text-xs text-navy-600 mt-0.5">حسین اکبری (کد ملی ۰۰۱۲****) با تایید مدرک سوءپیشینه به بازارچه متصل شد.</span>
+</div>
+</div>
+<div class="flex md:flex-col items-center md:items-end justify-between text-xs text-navy-400 gap-1 border-t md:border-t-0 pt-1 md:pt-0 border-slate-200">
+<span class="font-label-sm font-bold text-navy-700">توسط اپراتور ۴</span>
+<span class="font-mono text-[11px]">۳ دقیقه پیش</span>
+</div>
+</div>
+<!-- Event 2 -->
+<div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 flex flex-col md:flex-row md:items-center justify-between gap-3 hover:bg-slate-100/70 transition-colors">
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-coral-100 text-coral-700 flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[17px]">tune</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-label-md text-xs font-bold text-navy-950">تغییر نرخ کارشناسی در محل</span>
+<span class="font-mono text-[10px] bg-slate-200 text-navy-700 px-1.5 py-0.5 rounded">TariffConfig#General</span>
+</div>
+<span class="text-xs text-navy-600 mt-0.5">پایه بیعانه از ۲۰۰,۰۰۰ تومان به ۲۵۰,۰۰۰ تومان به‌روزرسانی شد.</span>
+</div>
+</div>
+<div class="flex md:flex-col items-center md:items-end justify-between text-xs text-navy-400 gap-1 border-t md:border-t-0 pt-1 md:pt-0 border-slate-200">
+<span class="font-label-sm font-bold text-navy-700">علیرضا حیدری (سوپرادمین)</span>
+<span class="font-mono text-[11px]">۲۸ دقیقه پیش</span>
+</div>
+</div>
+<!-- Event 3 -->
+<div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 flex flex-col md:flex-row md:items-center justify-between gap-3 hover:bg-slate-100/70 transition-colors">
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-red-100 text-red-700 flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[17px]">report_problem</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-label-md text-xs font-bold text-navy-950">ثبت اختلاف و توقف تسویه سفارش #FX-7814</span>
+<span class="font-mono text-[10px] bg-red-100 text-red-800 px-1.5 py-0.5 rounded font-bold">DisputeCase#104</span>
+</div>
+<span class="text-xs text-navy-600 mt-0.5">مشتری به قیمت خازن کولر گازی اعتراض دارد. پرونده به کارشناس داوری ارجاع شد.</span>
+</div>
+</div>
+<div class="flex md:flex-col items-center md:items-end justify-between text-xs text-navy-400 gap-1 border-t md:border-t-0 pt-1 md:pt-0 border-slate-200">
+<span class="font-label-sm font-bold text-navy-700">سیستم خودکار امنیتی</span>
+<span class="font-mono text-[11px]">۱ ساعت پیش</span>
+</div>
+</div>
+<!-- Event 4 -->
+<div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 flex flex-col md:flex-row md:items-center justify-between gap-3 hover:bg-slate-100/70 transition-colors">
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[17px]">account_balance</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-label-md text-xs font-bold text-navy-950">تسویه دسته جمعی چرخه پایا بانک مرکزی</span>
+<span class="font-mono text-[10px] bg-slate-200 text-navy-700 px-1.5 py-0.5 rounded">PayoutBatch#883</span>
+</div>
+<span class="text-xs text-navy-600 mt-0.5">مبلغ ۳۸,۲۰۰,۰۰۰ تومان به شماره شبای ۷۸ تکنسین با موفقیت حواله شد.</span>
+</div>
+</div>
+<div class="flex md:flex-col items-center md:items-end justify-between text-xs text-navy-400 gap-1 border-t md:border-t-0 pt-1 md:pt-0 border-slate-200">
+<span class="font-label-sm font-bold text-navy-700">کرون‌جاب خودکار (04:00 AM)</span>
+<span class="font-mono text-[11px]">۵ ساعت پیش</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- MODAL: QUICK EDIT ORDER DETAILS -->
+<div class="fixed inset-0 bg-navy-950/70 backdrop-blur-sm z-50 hidden items-center justify-center p-4" id="quick-edit-modal">
+<div class="bg-white rounded-2xl w-full max-w-lg p-6 shadow-2xl flex flex-col gap-4 border border-border-light animate-in fade-in zoom-in-95 duration-150">
+<div class="flex items-center justify-between pb-3 border-b border-border-light">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-coral-50 text-coral-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">edit_note</span>
+</div>
+<h3 class="font-title-lg text-base text-navy-950 font-bold" id="modal-title">اصلاح جزئیات سفارش</h3>
+</div>
+<button class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-navy-600 transition-colors" onclick="closeEditModal()">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="space-y-3">
+<div class="space-y-1">
+<label class="font-label-sm text-xs text-navy-700 font-bold">عنوان و مدل دستگاه</label>
+<input class="w-full h-10 px-3 bg-surface-light-input rounded-xl border border-navy-200 text-xs font-semibold text-navy-900 focus:bg-white focus:border-coral-500 focus:outline-none" id="modal-appliance" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-xs text-navy-700 font-bold">مبلغ تخمینی کارشناسی اولیه (تومان)</label>
+<input class="w-full h-10 px-3 bg-surface-light-input rounded-xl border border-navy-200 text-xs font-bold text-navy-900 focus:bg-white focus:border-coral-500 focus:outline-none" id="modal-price" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-xs text-navy-700 font-bold">یادداشت ناظر برای متخصصین (تاییدیه فنی)</label>
+<textarea class="w-full p-3 bg-surface-light-input rounded-xl border border-navy-200 text-xs text-navy-900 focus:bg-white focus:border-coral-500 focus:outline-none" id="modal-notes" placeholder="توضیحات تکمیلی نظیر مدل قطعه یدکی، نوع گاز یا وضعیت دسترسی به پشت‌بام..." rows="3"></textarea>
+</div>
+</div>
+<div class="flex items-center justify-end gap-2 pt-2 border-t border-border-light">
+<button class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-navy-700 font-label-md text-xs transition-colors" onclick="closeEditModal()">
+          انصراف
+        </button>
+<button class="px-5 py-2 rounded-xl bg-coral-500 hover:bg-coral-600 text-white font-label-md text-xs font-bold shadow-md shadow-coral-500/20 transition-all" onclick="saveModalEdit()">
+          ذخیره و آماده‌سازی برای انتشار
+        </button>
+</div>
+</div>
+</div>
+<!-- NOTIFICATION TOAST -->
+<div class="fixed bottom-6 left-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-2.5 bg-navy-950 text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-navy-800" id="toast">
+<span class="material-symbols-outlined text-coral-500 text-[20px]" id="toast-icon">check_circle</span>
+<span class="font-body-sm text-xs font-medium" id="toast-text">عملیات با موفقیت انجام شد</span>
+</div>
+<!-- JAVASCRIPT LOGIC -->
+<script>
+    let activeOrderId = null;
+    let pendingCount = 4;
+
+    // Switch Tabs Functionality
+    function switchTab(tabId) {
+      // Hide all contents
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      const activeEl = document.getElementById(tabId);
+      if (activeEl) activeEl.classList.remove('hidden');
+
+      // Update pills
+      document.querySelectorAll('.tab-pill').forEach(pill => {
+        pill.classList.remove('bg-navy-950', 'text-white', 'shadow-sm');
+        pill.classList.add('text-navy-600', 'hover:text-navy-950', 'hover:bg-slate-100');
+      });
+
+      const pillMap = {
+        'tab-moderation': 'pill-moderation',
+        'tab-pricing': 'pill-pricing',
+        'tab-kyc': 'pill-kyc',
+        'tab-audit': 'pill-audit'
+      };
+
+      const activePill = document.getElementById(pillMap[tabId]);
+      if (activePill) {
+        activePill.classList.add('bg-navy-950', 'text-white', 'shadow-sm');
+        activePill.classList.remove('text-navy-600', 'hover:text-navy-950', 'hover:bg-slate-100');
+      }
+
+      // Update aside button states
+      document.querySelectorAll('.tab-nav-btn').forEach(btn => {
+        if (btn.getAttribute('data-target') === tabId) {
+          btn.classList.add('bg-coral-500', 'text-white', 'font-bold', 'shadow-md', 'shadow-coral-500/20');
+          btn.classList.remove('text-navy-300', 'hover:bg-navy-900', 'hover:text-white');
+        } else {
+          btn.classList.remove('bg-coral-500', 'text-white', 'font-bold', 'shadow-md', 'shadow-coral-500/20');
+          btn.classList.add('text-navy-300', 'hover:bg-navy-900', 'hover:text-white');
+        }
+      });
+
+      // Update breadcrumb
+      const names = {
+        'tab-moderation': 'مرکز تایید و نظارت بر درخواست‌ها',
+        'tab-pricing': 'موتور نرخ‌گذاری و ضرایب زنده',
+        'tab-kyc': 'کنترل تکنسین‌ها و سهمیه KYC',
+        'tab-audit': 'لاگ رویدادها و ردپای تغییرات'
+      };
+      const breadcrumbEl = document.getElementById('current-breadcrumb');
+      if (breadcrumbEl && names[tabId]) {
+        breadcrumbEl.innerText = names[tabId];
+      }
+    }
+
+    // Toast notification
+    function showToast(msg, icon = 'check_circle') {
+      const toast = document.getElementById('toast');
+      const toastText = document.getElementById('toast-text');
+      const toastIcon = document.getElementById('toast-icon');
+      if (!toast || !toastText) return;
+      toastText.innerText = msg;
+      toastIcon.innerText = icon;
+      toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+      }, 3500);
+    }
+
+    // Approve an order
+    function approveOrder(orderId, clientName) {
+      const row = document.getElementById('req-' + orderId);
+      if (row) {
+        row.classList.add('bg-emerald-50', 'transition-all');
+        setTimeout(() => {
+          row.style.opacity = '0';
+          row.style.transform = 'translateX(20px)';
+          setTimeout(() => {
+            row.remove();
+            pendingCount = Math.max(0, pendingCount - 1);
+            updatePendingBadges();
+            showToast(`سفارش #${orderId} (${clientName}) تایید و در بازارچه منتشر شد.`);
+            addAuditLog(`تایید و انتشار سفارش #${orderId}`, `سفارش توسط علیرضا حیدری تایید و به ۳۴۲ تکنسین ناتیف شد.`);
+          }, 250);
+        }, 150);
+      }
+    }
+
+    // Reject an order
+    function rejectOrder(orderId) {
+      const reason = prompt('علت رد درخواست را جهت ارسال پیامک به مشتری وارد کنید:', 'عکس و شرح عیب ارسالی ناقص است، لطفاً مجدداً ثبت نمایید.');
+      if (reason !== null && reason.trim() !== '') {
+        const row = document.getElementById('req-' + orderId);
+        if (row) {
+          row.style.opacity = '0';
+          row.style.transform = 'translateX(-20px)';
+          setTimeout(() => {
+            row.remove();
+            pendingCount = Math.max(0, pendingCount - 1);
+            updatePendingBadges();
+            showToast(`سفارش #${orderId} لغو شد و پیامک به کاربر ارسال گردید.`, 'sms');
+            addAuditLog(`رد سفارش #${orderId}`, `دلیل: "${reason}" - پیامک ارسال شد.`);
+          }, 250);
+        }
+      }
+    }
+
+    function updatePendingBadges() {
+      const kpiPending = document.getElementById('kpi-pending-count');
+      const badgeTab = document.getElementById('badge-tab-count');
+      if (kpiPending) kpiPending.innerText = pendingCount;
+      if (badgeTab) badgeTab.innerText = pendingCount;
+    }
+
+    // Modal Edit logic
+    function openEditModal(orderId, client, appliance, price) {
+      activeOrderId = orderId;
+      document.getElementById('modal-title').innerText = `اصلاح سفارش #${orderId} (${client})`;
+      document.getElementById('modal-appliance').value = appliance;
+      document.getElementById('modal-price').value = price;
+      document.getElementById('modal-notes').value = '';
+      const modal = document.getElementById('quick-edit-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeEditModal() {
+      const modal = document.getElementById('quick-edit-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function saveModalEdit() {
+      const newPrice = document.getElementById('modal-price').value;
+      const targetInput = document.getElementById('price-' + activeOrderId);
+      if (targetInput) targetInput.value = newPrice;
+      closeEditModal();
+      showToast(`تغییرات سفارش #${activeOrderId} در دیتابیس ثبت شد.`);
+    }
+
+    // Sliders & settings sync
+    function syncCommission(val) {
+      document.getElementById('commission-input').value = val;
+      document.getElementById('commission-range').value = val;
+    }
+
+    function changeStepper(id, delta) {
+      const input = document.getElementById(id);
+      if (!input) return;
+      let val = parseInt(input.value) || 0;
+      val = Math.max(1, Math.min(10, val + delta));
+      input.value = val;
+    }
+
+    function saveSettingToast(title) {
+      showToast(`${title} با موفقیت در مدل‌های جنگو ذخیره و به کلاستر ارسال شد.`);
+    }
+
+    function syncAllToDatabase() {
+      showToast('کلیه تنظیمات و ماتریس قیمت با PostgreSQL سینک شد.', 'done_all');
+    }
+
+    function refreshDataState() {
+      const spinner = document.getElementById('sync-spinner');
+      if (spinner) spinner.classList.add('rotate-180');
+      setTimeout(() => {
+        if (spinner) spinner.classList.remove('rotate-180');
+        showToast('ارتباط با سرور جنگو و Redis کش پایدار است.', 'cloud_done');
+      }, 600);
+    }
+
+    function addAuditLog(actionTitle, detail) {
+      const container = document.getElementById('audit-log-container');
+      if (!container) return;
+      const newLog = document.createElement('div');
+      newLog.className = 'p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 flex flex-col md:flex-row md:items-center justify-between gap-3 animate-in fade-in slide-in-from-top-2 duration-200';
+      newLog.innerHTML = `
+        <div class="flex items-start gap-3">
+          <div class="w-8 h-8 rounded-lg bg-coral-100 text-coral-700 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <span class="material-symbols-outlined text-[17px]">verified</span>
+          </div>
+          <div class="flex flex-col">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="font-label-md text-xs font-bold text-navy-950">${actionTitle}</span>
+              <span class="font-mono text-[10px] bg-slate-200 text-navy-700 px-1.5 py-0.5 rounded">Action#Log</span>
+            </div>
+            <span class="text-xs text-navy-600 mt-0.5">${detail}</span>
+          </div>
+        </div>
+        <div class="flex md:flex-col items-center md:items-end justify-between text-xs text-navy-400 gap-1 border-t md:border-t-0 pt-1 md:pt-0 border-slate-200">
+          <span class="font-label-sm font-bold text-navy-700">علیرضا حیدری</span>
+          <span class="font-mono text-[11px]">هم‌اکنون</span>
+        </div>
+      `;
+      container.prepend(newLog);
+    }
+  </script>
+</body></html>
